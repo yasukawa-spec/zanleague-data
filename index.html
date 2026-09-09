@@ -44,11 +44,8 @@ h1,h2,h3,h4{margin:0;font-family:var(--disp);font-weight:700;text-wrap:balance}
 .head{background:var(--paper);border-bottom:1px solid #DDD}
 .head .in{max-width:1300px;margin:0 auto;padding:14px 22px;display:flex;
   align-items:center;justify-content:center;position:relative}
-.wm{text-align:center;line-height:1.15}
-.wm .jp{font-family:var(--sans);font-weight:900;font-size:27px;letter-spacing:.06em;
-  color:#111;display:block}
-.wm .sub{font-family:var(--sans);font-weight:700;font-size:10px;letter-spacing:.34em;
-  color:var(--red);display:block;margin-top:5px}
+.wm{display:block;line-height:0}
+.wm img{width:300px;height:auto;display:block}
 .head .sec{position:absolute;right:22px;top:50%;transform:translateY(-50%);
   font-family:var(--disp);font-weight:700;font-size:10.5px;letter-spacing:.16em;
   color:#111;border-left:3px solid var(--red);padding-left:10px;line-height:1.35}
@@ -218,7 +215,7 @@ footer .in{max-width:1300px;margin:0 auto;padding:20px 22px;font-family:var(--nu
 footer b{color:#111}
 @media (max-width:680px){
   .head .in,.bar .in,nav .in,.wrap,footer .in{padding-left:13px;padding-right:13px}
-  .wm .jp{font-size:20px} .wm .sub{font-size:8.5px;letter-spacing:.24em}
+  .wm img{width:210px}
   .head .sec{display:none}
   th,td{padding:8px 9px} .ph h3{font-size:19px}
   thead th{top:45px}
@@ -229,10 +226,9 @@ footer b{color:#111}
 <body>
 
 <div class="head"><div class="in">
-  <div class="wm">
-    <span class="jp">ザンリーグ</span>
-    <span class="sub">三人麻雀競技団体</span>
-  </div>
+  <a class="wm" href="https://thanm-mahjongg.com/">
+    <img src="logo.png" alt="ザンリーグ | 三人麻雀競技団体" width="477" height="124">
+  </a>
   <div class="sec">企業リーグ<b>DATA 2026</b></div>
 </div></div>
 <div class="rule"></div>
