@@ -7,250 +7,255 @@
 <title>ザン企業リーグ データ | 2026シーズン</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
 <style>
+/* ザンリーグ公式サイト（thanm-mahjongg.com）に合わせる：
+   白いヘッダーに中央ロゴ、本文は黒地、赤 #B50018、賞金表記の金。
+   公式が単一の見た目に振り切っているので、こちらも黒地の一枚仕様にする。 */
 :root{
-  /* 公式サイト（thanm-mahjongg.com）の配色に合わせる：黒・深紅 #B50018・白・淡黄 */
-  --black:#0A0A0A; --ink:#141414; --muted:#5E5E5E; --faint:#8E8E8E;
-  --paper:#FFFFFF; --wash:#F4F4F4; --line:#E3E3E3; --line-hard:#C9C9C9;
-  --crimson:#B50018; --crimson-hi:#D4001C; --crimson-deep:#7E0011;
-  --highlight:#FFFFCC;
-  --r1:#B50018; --r2:#9A9A9A; --r3:#E0E0E0;
-  --good:#0F7A3D; --bad:#B50018;
-  --shadow:0 1px 0 rgba(0,0,0,.04),0 10px 26px -18px rgba(0,0,0,.28);
+  --paper:#FFFFFF;            /* ヘッダーの白 */
+  --ground:#000000;           /* 本文の黒 */
+  --panel:#0D0D0D;
+  --panel2:#151515;
+  --ink:#F2F2F2;
+  --muted:#9C9C9C;
+  --faint:#6E6E6E;
+  --line:#242424;
+  --line2:#333333;
+  --red:#B50018;              /* 公式ロゴ下の赤 */
+  --red-hi:#E4142A;
+  --gold:#F0C33C;             /* 賞金表記の金 */
+  --gold-dim:#8A6E20;
+  --up:#4BC98A;
+  --down:#FF6B76;
+  --r1:#B50018; --r2:#6B6B6B; --r3:#242424;
   --disp:"Montserrat","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic UI",sans-serif;
   --sans:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic UI",system-ui,sans-serif;
   --num:"Montserrat","Noto Sans JP",sans-serif;
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --black:#000000; --ink:#F0F0F0; --muted:#A0A0A0; --faint:#767676;
-    --paper:#121212; --wash:#1B1B1B; --line:#2A2A2A; --line-hard:#3A3A3A;
-    --crimson:#E01024; --crimson-hi:#FF2438; --crimson-deep:#B50018;
-    --highlight:#3A3413;
-    --r1:#E01024; --r2:#6A6A6A; --r3:#2E2E2E;
-    --good:#41B876; --bad:#FF6B76;
-    --shadow:0 1px 0 rgba(0,0,0,.5),0 12px 30px -20px rgba(0,0,0,.9);
-  }
-}
-:root[data-theme="dark"]{
-  --black:#000000; --ink:#F0F0F0; --muted:#A0A0A0; --faint:#767676;
-  --paper:#121212; --wash:#1B1B1B; --line:#2A2A2A; --line-hard:#3A3A3A;
-  --crimson:#E01024; --crimson-hi:#FF2438; --crimson-deep:#B50018;
-  --highlight:#3A3413;
-  --r1:#E01024; --r2:#6A6A6A; --r3:#2E2E2E;
-  --good:#41B876; --bad:#FF6B76;
-  --shadow:0 1px 0 rgba(0,0,0,.5),0 12px 30px -20px rgba(0,0,0,.9);
-}
 *{box-sizing:border-box}
 html,body{margin:0}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:14px;
+body{background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:14px;
   line-height:1.75;-webkit-font-smoothing:antialiased}
 img{max-width:100%}
 [hidden]{display:none!important}
 h1,h2,h3,h4{margin:0;font-family:var(--disp);font-weight:700;text-wrap:balance}
-/* ================= masthead ================= */
-.mast{background:var(--black);border-bottom:4px solid var(--crimson)}
-.mast .in{max-width:1300px;margin:0 auto;padding:0 22px}
-.top{display:flex;align-items:center;gap:20px;padding:16px 0 14px;flex-wrap:wrap}
-.logo{display:flex;align-items:center;gap:11px}
-.logo .mark{width:34px;height:34px;background:var(--crimson);display:grid;place-items:center;
-  font-family:var(--disp);font-weight:800;font-size:19px;color:#FFF;line-height:1;flex:none}
-.logo .wm{font-family:var(--disp);font-weight:800;font-size:21px;letter-spacing:.05em;color:#FFF}
-.logo .wm small{display:block;font-size:9.5px;font-weight:600;letter-spacing:.26em;
-  color:var(--crimson-hi);margin-top:2px}
-.stats{display:flex;gap:0;margin-left:auto;flex-wrap:wrap;border-left:1px solid #262626}
-.stats div{padding:0 16px;border-right:1px solid #262626}
-.stats dt{font-family:var(--disp);font-size:9px;font-weight:700;letter-spacing:.16em;
-  color:#8A8A8A;margin:0}
-.stats dd{margin:1px 0 0;font-family:var(--num);font-weight:700;font-size:15px;color:#FFF;
-  font-variant-numeric:tabular-nums}
-nav{display:flex;overflow-x:auto}
-nav button{appearance:none;background:none;border:0;font-family:var(--disp);font-weight:700;
-  font-size:13.5px;color:#9A9A9A;padding:12px 22px;cursor:pointer;white-space:nowrap;
-  border-bottom:4px solid transparent;margin-bottom:-4px;letter-spacing:.02em}
-nav button:hover{color:#FFF;background:#161616}
-nav button[aria-selected="true"]{color:#FFF;border-bottom-color:var(--crimson)}
-nav button:focus-visible{outline:2px solid var(--crimson-hi);outline-offset:-5px}
-/* ================= shell ================= */
-.wrap{max-width:1300px;margin:0 auto;padding:28px 22px 80px}
-.vh{border-bottom:2px solid var(--black);padding-bottom:11px;margin-bottom:18px;
-  display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap}
-.vh h2{font-size:21px;letter-spacing:.02em}
-.vh h2 span{color:var(--crimson);margin-right:9px}
-.vh p{margin:0;color:var(--muted);font-size:12.5px;max-width:70ch}
+/* ============ 白いヘッダー（公式と同じ：中央にロゴ） ============ */
+.head{background:var(--paper);border-bottom:1px solid #DDD}
+.head .in{max-width:1300px;margin:0 auto;padding:14px 22px;display:flex;
+  align-items:center;justify-content:center;position:relative}
+.wm{text-align:center;line-height:1.15}
+.wm .jp{font-family:var(--sans);font-weight:900;font-size:27px;letter-spacing:.06em;
+  color:#111;display:block}
+.wm .sub{font-family:var(--sans);font-weight:700;font-size:10px;letter-spacing:.34em;
+  color:var(--red);display:block;margin-top:5px}
+.head .sec{position:absolute;right:22px;top:50%;transform:translateY(-50%);
+  font-family:var(--disp);font-weight:700;font-size:10.5px;letter-spacing:.16em;
+  color:#111;border-left:3px solid var(--red);padding-left:10px;line-height:1.35}
+.head .sec b{display:block;color:var(--red);font-size:12px;letter-spacing:.1em}
+/* ============ 赤の帯 → 黒の情報バー ============ */
+.rule{height:4px;background:var(--red)}
+.bar{background:var(--panel);border-bottom:1px solid var(--line)}
+.bar .in{max-width:1300px;margin:0 auto;padding:9px 22px;display:flex;gap:0;
+  flex-wrap:wrap;align-items:center}
+.bar .st{padding:0 18px;border-right:1px solid var(--line2);line-height:1.3}
+.bar .st:first-child{padding-left:0}
+.bar .st:last-child{border-right:0}
+.bar dt{font-family:var(--disp);font-size:8.5px;font-weight:700;letter-spacing:.18em;
+  color:var(--faint);margin:0}
+.bar dd{margin:1px 0 0;font-family:var(--num);font-weight:700;font-size:14px;
+  color:var(--ink);font-variant-numeric:tabular-nums}
+/* ============ タブ ============ */
+nav{background:var(--ground);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+nav .in{max-width:1300px;margin:0 auto;padding:0 22px;display:flex;overflow-x:auto}
+nav button{appearance:none;background:none;border:0;font-family:var(--sans);font-weight:700;
+  font-size:13.5px;color:var(--muted);padding:13px 24px;cursor:pointer;white-space:nowrap;
+  border-bottom:3px solid transparent;margin-bottom:-1px;letter-spacing:.04em}
+nav button:hover{color:#FFF}
+nav button[aria-selected="true"]{color:#FFF;border-bottom-color:var(--red)}
+nav button:focus-visible{outline:2px solid var(--red-hi);outline-offset:-5px}
+/* ============ 本体 ============ */
+.wrap{max-width:1300px;margin:0 auto;padding:26px 22px 80px}
+.vh{margin-bottom:18px;display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  border-bottom:1px solid var(--line2);padding-bottom:12px}
+.vh h2{font-family:var(--sans);font-weight:900;font-size:20px;letter-spacing:.06em;
+  padding-left:11px;border-left:5px solid var(--red)}
+.vh p{margin:0;color:var(--muted);font-size:12.5px;max-width:72ch}
+.vh p b{color:var(--ink)}
 .tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 14px}
 .tools label{font-size:12px;color:var(--muted);font-weight:500}
-.tools select{font:inherit;font-size:13px;padding:5px 9px;background:var(--paper);
-  color:var(--ink);border:1px solid var(--line-hard);border-radius:0}
-.tools select:focus-visible{outline:2px solid var(--crimson);outline-offset:1px}
-.cnt{font-family:var(--num);font-size:11px;font-weight:600;color:var(--faint);margin-left:auto}
-/* ================= tables ================= */
-.scroll{overflow-x:auto;border:1px solid var(--line);background:var(--paper);box-shadow:var(--shadow)}
+.tools select{font:inherit;font-size:13px;padding:5px 9px;background:var(--panel2);
+  color:var(--ink);border:1px solid var(--line2);border-radius:0}
+.tools select:focus-visible{outline:2px solid var(--red-hi);outline-offset:1px}
+.cnt{font-family:var(--num);font-size:11px;font-weight:700;color:var(--faint);margin-left:auto}
+/* ============ 表 ============ */
+.scroll{overflow-x:auto;border:1px solid var(--line);background:var(--panel)}
 table{border-collapse:collapse;width:100%;font-size:13px}
 th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
-thead th{background:var(--black);color:#E8E8E8;font-family:var(--disp);font-size:10.5px;
-  font-weight:700;letter-spacing:.05em;position:sticky;top:0;z-index:1;
-  vertical-align:bottom;border-bottom:0}
+thead th{background:#FFF;color:#111;font-family:var(--disp);font-size:10.5px;font-weight:700;
+  letter-spacing:.04em;position:sticky;top:47px;z-index:1;vertical-align:bottom;
+  border-bottom:3px solid var(--red)}
 thead th.s{cursor:pointer;user-select:none}
-thead th.s:hover{color:#FFF;background:#1D1D1D}
-thead th.s::after{content:"";opacity:.35;margin-left:5px}
-thead th.s[data-dir="asc"]::after{content:"▲";opacity:1;color:var(--crimson-hi)}
-thead th.s[data-dir="desc"]::after{content:"▼";opacity:1;color:var(--crimson-hi)}
+thead th.s:hover{background:#F0F0F0}
+thead th.s::after{content:"";opacity:.3;margin-left:5px}
+thead th.s[data-dir="asc"]::after{content:"▲";opacity:1;color:var(--red)}
+thead th.s[data-dir="desc"]::after{content:"▼";opacity:1;color:var(--red)}
 thead th .u{display:block;font-family:var(--sans);font-weight:400;font-size:9.5px;
-  color:#9A9A9A;letter-spacing:0;margin-top:2px}
+  color:#777;letter-spacing:0;margin-top:2px}
 tbody tr:last-child td{border-bottom:0}
-tbody tr:hover td{background:var(--wash)}
-.num{font-family:var(--num);font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
-.pos{color:var(--good)} .neg{color:var(--bad)} .thin{color:var(--faint);font-weight:400}
-.rk{font-family:var(--disp);font-weight:800;color:var(--faint);width:40px;text-align:right;
-  font-size:14px}
-.rk.top3{color:var(--crimson)}
-.pn{font-weight:500;min-width:130px}
+tbody tr:hover td{background:var(--panel2)}
+.num{font-family:var(--num);font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+.up{color:var(--up)} .down{color:var(--down)} .thin{color:var(--faint);font-weight:400}
+.rk{font-family:var(--disp);font-weight:800;color:var(--faint);width:44px;text-align:right;
+  font-size:15px}
+.rk.top3{color:var(--gold)}
+.pn{font-weight:500;min-width:132px}
 .pn button{appearance:none;background:none;border:0;font:inherit;font-weight:500;cursor:pointer;
-  color:var(--ink);padding:0;text-align:left;border-bottom:1px solid var(--line-hard)}
-.pn button:hover{color:var(--crimson);border-bottom-color:var(--crimson)}
-.pn button:focus-visible{outline:2px solid var(--crimson);outline-offset:2px}
+  color:var(--ink);padding:0;text-align:left;border-bottom:1px solid var(--line2)}
+.pn button:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.pn button:focus-visible{outline:2px solid var(--red-hi);outline-offset:2px}
 .tag{display:inline-block;font-family:var(--disp);font-size:9px;font-weight:700;padding:1px 5px;
-  background:var(--highlight);color:var(--ink);margin-left:6px;vertical-align:1px;
+  border:1px solid var(--gold-dim);color:var(--gold);margin-left:6px;vertical-align:1px;
   letter-spacing:.04em}
-/* 着順の帯（三人麻雀なので3色） */
+.chips{font-family:var(--num);font-weight:800;color:var(--gold)}
+/* 着順の帯（三人麻雀＝3色） */
 .dist{display:flex;height:8px;width:84px;background:var(--line);flex:none}
 .dist i{display:block;height:100%}
 .dist i.a{background:var(--r1)} .dist i.b{background:var(--r2)} .dist i.c{background:var(--r3)}
 .dw{display:flex;align-items:center;gap:9px;justify-content:flex-end}
-.dw code{font-family:var(--num);font-weight:600;font-size:11px;color:var(--faint);
+.dw code{font-family:var(--num);font-weight:700;font-size:11px;color:var(--faint);
   min-width:46px;text-align:right}
-/* ================= ranking boards ================= */
+/* ============ ランキング ============ */
 .grp{margin:0 0 32px}
 .gh{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.gh h3{font-size:15px;letter-spacing:.1em;background:var(--black);color:#FFF;
-  padding:5px 14px;font-weight:700}
-.gh h3.hot{background:var(--crimson)}
+.gh h3{font-family:var(--sans);font-weight:900;font-size:15px;letter-spacing:.14em;
+  background:#FFF;color:#111;padding:5px 16px}
+.gh h3.hot{background:var(--red);color:#FFF}
 .gh p{margin:0;font-size:12px;color:var(--faint)}
-.boards{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:14px}
-.bd{border:1px solid var(--line);background:var(--paper);box-shadow:var(--shadow);
-  display:flex;flex-direction:column}
-.bd>h4{font-family:var(--disp);font-size:11.5px;font-weight:700;letter-spacing:.04em;
-  padding:9px 13px;background:var(--wash);border-bottom:2px solid var(--black);
+.boards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.bd{border:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column}
+.bd>h4{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.04em;
+  padding:9px 13px;background:var(--panel2);border-bottom:2px solid var(--line2);
   display:flex;justify-content:space-between;gap:10px;align-items:center}
-.bd>h4 em{font-style:normal;font-weight:600;color:var(--faint);font-size:9.5px;
-  font-family:var(--num);letter-spacing:.1em}
-.bd.hot>h4{border-bottom-color:var(--crimson);background:var(--highlight)}
+.bd>h4 em{font-style:normal;font-weight:700;color:var(--faint);font-size:9px;
+  font-family:var(--disp);letter-spacing:.14em}
+.bd.hot>h4{border-bottom-color:var(--red);color:#FFF}
 .bd ol{list-style:none;margin:0;padding:4px 0}
 .bd li{display:grid;grid-template-columns:20px 1fr auto;align-items:center;gap:10px;
   padding:5px 13px}
 .bd li+li{border-top:1px solid var(--line)}
 .bd li .n{font-family:var(--disp);font-weight:800;font-size:11px;color:var(--faint);
   text-align:right}
-.bd li:first-child .n{color:var(--crimson)}
+.bd li:first-child .n{color:var(--gold)}
 .bd li button{appearance:none;background:none;border:0;font:inherit;cursor:pointer;
   color:inherit;padding:0;text-align:left;overflow:hidden;text-overflow:ellipsis}
-.bd li button:hover{color:var(--crimson)}
-.bd li .v{font-family:var(--num);font-size:13px;font-weight:700;
+.bd li button:hover{color:var(--gold)}
+.bd li .v{font-family:var(--num);font-size:13px;font-weight:800;
   font-variant-numeric:tabular-nums;white-space:nowrap}
 .bd li .v s{text-decoration:none;font-size:9.5px;color:var(--faint);margin-left:5px;
-  font-weight:500}
+  font-weight:600}
+.bd.hot li .v{color:var(--gold)}
 .bd .empty{padding:13px;color:var(--faint);font-size:12px}
-/* ================= roster ================= */
-.roster{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:12px}
-.pcard{border:1px solid var(--line);background:var(--paper);box-shadow:var(--shadow);
-  padding:0;text-align:left;cursor:pointer;font:inherit;color:inherit;display:flex;
-  flex-direction:column;border-top:3px solid var(--black)}
-.pcard:hover{border-top-color:var(--crimson)}
-.pcard:focus-visible{outline:2px solid var(--crimson);outline-offset:2px}
+/* ============ 名鑑 ============ */
+.roster{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.pcard{border:1px solid var(--line);background:var(--panel);padding:0;text-align:left;
+  cursor:pointer;font:inherit;color:inherit;display:flex;flex-direction:column;
+  border-top:3px solid var(--line2)}
+.pcard:hover{border-top-color:var(--red)}
+.pcard:focus-visible{outline:2px solid var(--red-hi);outline-offset:2px}
 .pcard .hd{display:flex;justify-content:space-between;align-items:baseline;gap:8px;
   padding:11px 13px 8px}
-.pcard .nm{font-family:var(--disp);font-size:15.5px;font-weight:700}
-.pcard .lr{font-family:var(--disp);font-weight:800;font-size:13px;color:var(--crimson)}
+.pcard .nm{font-family:var(--sans);font-size:15.5px;font-weight:700}
+.pcard .lr{font-family:var(--disp);font-weight:800;font-size:14px;color:var(--gold)}
 .pcard dl{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin:0;background:var(--line)}
-.pcard dl>div{background:var(--paper);padding:6px 13px}
+.pcard dl>div{background:var(--panel);padding:6px 13px}
 .pcard dt{color:var(--faint);font-size:10px;margin:0}
 .pcard dd{margin:0;font-family:var(--num);font-weight:700;font-size:13px;
   font-variant-numeric:tabular-nums}
-/* ================= profile ================= */
-#prof{border:1px solid var(--black);background:var(--paper);box-shadow:var(--shadow);
-  margin-bottom:24px}
-.ph{background:var(--black);color:#FFF;padding:16px 20px;display:flex;
-  justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;
-  border-bottom:4px solid var(--crimson)}
-.ph h3{font-size:23px;color:#FFF}
-.ph .sub{font-family:var(--num);font-size:11px;font-weight:500;color:#9A9A9A;margin:4px 0 0}
+/* ============ 個人ページ ============ */
+#prof{border:1px solid var(--line2);background:var(--panel);margin-bottom:24px}
+.ph{background:#FFF;color:#111;padding:15px 20px;display:flex;justify-content:space-between;
+  align-items:flex-start;gap:16px;flex-wrap:wrap;border-bottom:4px solid var(--red)}
+.ph h3{font-family:var(--sans);font-weight:900;font-size:23px;color:#111}
+.ph .sub{font-family:var(--num);font-size:11px;font-weight:600;color:#666;margin:4px 0 0}
 .ph .off{text-align:right}
-.ph .off b{display:block;font-family:var(--disp);font-size:26px;font-weight:800;
-  color:var(--crimson-hi);line-height:1.1}
-.ph .off span{font-family:var(--num);font-size:10.5px;font-weight:600;color:#9A9A9A}
-.ph button{appearance:none;background:none;border:1px solid #3A3A3A;color:#E8E8E8;
-  font:inherit;font-size:12px;padding:4px 11px;cursor:pointer}
-.ph button:hover{background:#1D1D1D;border-color:var(--crimson)}
+.ph .off b{display:block;font-family:var(--disp);font-size:27px;font-weight:800;
+  color:var(--red);line-height:1.05}
+.ph .off span{font-family:var(--num);font-size:10.5px;font-weight:700;color:#666}
+.ph button{appearance:none;background:none;border:1px solid #CCC;color:#111;font:inherit;
+  font-size:12px;padding:4px 11px;cursor:pointer}
+.ph button:hover{background:#EEE;border-color:var(--red)}
+.ph .tag{border-color:var(--red);color:var(--red)}
 .pb{padding:18px 20px}
-h4.sec{font-family:var(--disp);font-size:11px;font-weight:700;letter-spacing:.12em;
-  color:var(--ink);margin:0 0 9px;padding-left:9px;border-left:4px solid var(--crimson)}
+h4.sec{font-family:var(--sans);font-size:11.5px;font-weight:900;letter-spacing:.16em;
+  color:var(--ink);margin:0 0 9px;padding-left:9px;border-left:4px solid var(--red)}
 .mg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1px;
   background:var(--line);border:1px solid var(--line);margin:0 0 20px}
-.mg>div{background:var(--paper);padding:10px 12px}
+.mg>div{background:var(--panel2);padding:10px 12px}
 .mg dt{font-size:10px;color:var(--faint);font-weight:500;margin:0}
-.mg dd{margin:2px 0 0;font-family:var(--num);font-size:18px;font-weight:700;
+.mg dd{margin:2px 0 0;font-family:var(--num);font-size:18px;font-weight:800;
   font-variant-numeric:tabular-nums;line-height:1.3}
-.mg dd s{text-decoration:none;font-size:10px;color:var(--faint);font-weight:500;margin-left:3px}
-.mg.hot>div{background:var(--highlight)}
+.mg dd s{text-decoration:none;font-size:10px;color:var(--faint);font-weight:600;margin-left:3px}
+.mg.hot dd{color:var(--gold)}
 .hl{display:flex;align-items:center;gap:12px;margin:0 0 18px;flex-wrap:wrap}
 .hl .dist{width:210px;height:11px}
-.hl code{font-family:var(--num);font-weight:600;font-size:12px;color:var(--muted)}
-/* ================= notes ================= */
-.legend{display:flex;gap:15px;font-family:var(--num);font-size:10.5px;font-weight:600;
+.hl code{font-family:var(--num);font-weight:700;font-size:12px;color:var(--muted)}
+/* ============ 注記 ============ */
+.legend{display:flex;gap:15px;font-family:var(--num);font-size:10.5px;font-weight:700;
   color:var(--faint);flex-wrap:wrap;align-items:center;margin:12px 0 0}
 .legend span{display:flex;align-items:center;gap:6px}
 .legend i{width:11px;height:11px;display:block}
 .legend i.a{background:var(--r1)} .legend i.b{background:var(--r2)} .legend i.c{background:var(--r3)}
-.note{border-top:2px solid var(--black);background:var(--wash);padding:15px 18px;
+.note{border-left:4px solid var(--gold-dim);background:var(--panel);padding:15px 18px;
   margin:26px 0 0;font-size:12.5px;color:var(--muted)}
 .note b{color:var(--ink)}
-.note>strong{display:block;font-family:var(--disp);font-size:12px;letter-spacing:.06em;
-  color:var(--ink);margin-bottom:7px}
+.note>strong{display:block;font-family:var(--sans);font-size:12px;font-weight:900;
+  letter-spacing:.1em;color:var(--ink);margin-bottom:7px}
 .note ul{margin:0;padding-left:19px} .note li{margin:3px 0}
-footer{background:var(--black);color:#8A8A8A;margin-top:44px}
+footer{background:#FFF;color:#555;margin-top:44px;border-top:4px solid var(--red)}
 footer .in{max-width:1300px;margin:0 auto;padding:20px 22px;font-family:var(--num);
-  font-size:11px;font-weight:500;line-height:1.9}
-footer b{color:#D8D8D8}
+  font-size:11px;font-weight:600;line-height:1.9}
+footer b{color:#111}
 @media (max-width:680px){
-  .mast .in,.wrap,footer .in{padding-left:13px;padding-right:13px}
-  .logo .wm{font-size:17px} .stats{margin-left:0;border-left:0;border-top:1px solid #262626;
-    padding-top:8px;width:100%}
-  .stats div:first-child{padding-left:0}
+  .head .in,.bar .in,nav .in,.wrap,footer .in{padding-left:13px;padding-right:13px}
+  .wm .jp{font-size:20px} .wm .sub{font-size:8.5px;letter-spacing:.24em}
+  .head .sec{display:none}
   th,td{padding:8px 9px} .ph h3{font-size:19px}
+  thead th{top:45px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
 
-<div class="mast"><div class="in">
-  <div class="top">
-    <div class="logo">
-      <span class="mark">Z</span>
-      <span class="wm">ザン企業リーグ<small>DATA 2026</small></span>
-    </div>
-    <dl class="stats">
-      <div><dt>KAISEN</dt><dd id="dKai"></dd></div>
-      <div><dt>HANCHAN</dt><dd id="dHan"></dd></div>
-      <div><dt>KYOKU</dt><dd id="dHands"></dd></div>
-      <div><dt>PLAYERS</dt><dd id="dPl"></dd></div>
-      <div><dt>読み取り</dt><dd id="dVid"></dd></div>
-    </dl>
+<div class="head"><div class="in">
+  <div class="wm">
+    <span class="jp">ザンリーグ</span>
+    <span class="sub">三人麻雀競技団体</span>
   </div>
-  <nav role="tablist">
-    <button role="tab" id="t-s" aria-selected="true">総合順位</button>
-    <button role="tab" id="t-r" aria-selected="false">ランキング</button>
-    <button role="tab" id="t-p" aria-selected="false">選手名鑑</button>
-  </nav>
+  <div class="sec">企業リーグ<b>DATA 2026</b></div>
 </div></div>
+<div class="rule"></div>
+
+<div class="bar"><div class="in">
+  <dl class="st"><dt>KAISEN</dt><dd id="dKai"></dd></dl>
+  <dl class="st"><dt>HANCHAN</dt><dd id="dHan"></dd></dl>
+  <dl class="st"><dt>KYOKU</dt><dd id="dHands"></dd></dl>
+  <dl class="st"><dt>PLAYERS</dt><dd id="dPl"></dd></dl>
+  <dl class="st"><dt>読み取り済み</dt><dd id="dVid"></dd></dl>
+</div></div>
+
+<nav role="tablist"><div class="in">
+  <button role="tab" id="t-s" aria-selected="true">総合順位</button>
+  <button role="tab" id="t-r" aria-selected="false">ランキング</button>
+  <button role="tab" id="t-p" aria-selected="false">選手名鑑</button>
+</div></nav>
 
 <div class="wrap">
 
 <section id="v-s">
   <div class="vh">
-    <h2><span>01</span>総合順位</h2>
+    <h2>総合順位</h2>
     <p>順位と累計チップ枚数は<b>配信のテロップに出ている公式の数字</b>。この団体の成績は素点ではなくチップで決まる（第37条）。右側の各指標は読み取れた半荘だけの参考値。</p>
   </div>
   <div class="scroll"><table id="ts"><thead><tr>
@@ -278,7 +283,7 @@ footer b{color:#D8D8D8}
 
 <section id="v-r" hidden>
   <div class="vh">
-    <h2><span>02</span>ランキング</h2>
+    <h2>ランキング</h2>
     <p>攻め・守り・運の3つの面から見る。<b>運</b>は本人の技量では動かない要素（裏ドラ・華牌の引き）と、被害の大きさ。</p>
   </div>
   <div class="tools">
@@ -305,7 +310,7 @@ footer b{color:#D8D8D8}
 
 <section id="v-p" hidden>
   <div class="vh">
-    <h2><span>03</span>選手名鑑</h2>
+    <h2>選手名鑑</h2>
     <p>名前を押すと個人のページが開く。半荘ごとの着順・最終素点・チップ・華牌の履歴まで見られる。</p>
   </div>
   <div class="tools">
@@ -399,12 +404,10 @@ function showView(tab){
   });
 }
 [['t-s','v-s'],['t-r','v-r'],['t-p','v-p']].forEach(function(v){
-  $('#'+v[0]).addEventListener('click', function(){
-    showView(v[0]); window.scrollTo(0,0);
-  });
+  $('#'+v[0]).addEventListener('click', function(){ showView(v[0]); window.scrollTo(0,0); });
 });
 
-/* ---------- 総合順位 ---------- */
+/* 総合順位 */
 var tsBody = $('#ts tbody');
 var sKey='telopRankInv', sDir='desc';
 var sThs = document.querySelectorAll('#ts thead th.s');
@@ -422,14 +425,14 @@ function drawStandings(){
     tr.appendChild(el('td','rk'+(p.telopRank!=null&&p.telopRank<=3?' top3':''),
       p.telopRank==null?'—':String(p.telopRank)));
     tr.appendChild(nameCell(p));
-    var tc = el('td','num'+(p.telopChips>0?' pos':(p.telopChips<0?' neg':'')));
+    var tc = el('td','num chips');
     tc.textContent = p.telopChips==null?'—':sgn(p.telopChips); tr.appendChild(tc);
     tr.appendChild(el('td','num',String(p.hanchans)));
     tr.appendChild(el('td','num',String(p.hands)));
     tr.appendChild(el('td','num',pc(p.topRate)));
     var d = el('td','num'); d.appendChild(distBar(p)); tr.appendChild(d);
     tr.appendChild(el('td','num',p.avgRank==null?'—':p.avgRank.toFixed(2)));
-    var ch = el('td','num'+(p.chipTotal>0?' pos':(p.chipTotal<0?' neg':'')));
+    var ch = el('td','num'+(p.chipTotal>0?' up':(p.chipTotal<0?' down':'')));
     ch.textContent = p.chipTotal==null?'—':sgn(p.chipTotal); tr.appendChild(ch);
     tr.appendChild(el('td','num',pc(p.winRate)));
     tr.appendChild(el('td','num',pc(p.dealInRate)));
@@ -448,7 +451,7 @@ Array.prototype.forEach.call(sThs, function(th){
 });
 drawStandings();
 
-/* ---------- ランキング ---------- */
+/* ランキング */
 var BOARDS = {
   atk: [
     {t:'和了率', k:'winRate', f:function(v){return pc(v)}, s:function(p){return p.wins+'/'+p.hands+'局'}},
@@ -508,7 +511,7 @@ function drawBoards(){
 $('#rMin').addEventListener('change', function(e){ rMin = +e.target.value; drawBoards(); });
 drawBoards();
 
-/* ---------- 選手名鑑 ---------- */
+/* 名鑑 */
 var pSort='telopRankInv', showUnread=true;
 function drawRoster(){
   var list = P.filter(function(p){ return showUnread || !p.nameUnread; })
@@ -541,7 +544,7 @@ $('#pSort').addEventListener('change', function(e){ pSort = e.target.value; draw
 $('#pUn').addEventListener('change', function(e){ showUnread = !!e.target.value; drawRoster(); });
 drawRoster();
 
-/* ---------- プロフィール ---------- */
+/* 個人ページ */
 function mg(rows, cls){
   var dl = el('dl','mg'+(cls?' '+cls:''));
   rows.forEach(function(r){
@@ -638,7 +641,7 @@ function openProfile(name){
       tr.appendChild(el('td',null, g.seat));
       tr.appendChild(el('td','num', g.rank+'着'));
       tr.appendChild(el('td','num', nf(g.points)));
-      var c = el('td','num'+(g.chips>0?' pos':(g.chips<0?' neg':'')));
+      var c = el('td','num'+(g.chips>0?' up':(g.chips<0?' down':'')));
       c.textContent = g.chips==null?'—':sgn(g.chips); tr.appendChild(c);
       tr.appendChild(el('td','num', g.hana==null?'—':g.hana+'枚'));
       tbody.appendChild(tr);
@@ -651,13 +654,13 @@ function openProfile(name){
 }
 
 $('#foot').innerHTML =
-  '<b>ザン企業リーグ データ / 2026シーズン</b>　'
+  '<b>ザンリーグ 企業リーグ データ / 2026シーズン</b>　'
   + '配信のテロップから素点を読み取り、その差分を競技規定（2026年1月・全55条）の点数表で逆算。'
   + '一意に決まった局だけを集計している。<br>'
   + '動画 <b>'+C.videos+' / '+C.totalInSeason+'本</b>・半荘 <b>'+C.hanchans+'</b>・局 <b>'+C.hands+'</b>'
   + '（一意 '+C.solved+' ／ 候補が複数 '+C.multi+' ／ 説明できない '+C.none+'）　'
   + '出力 '+D.generatedAt.slice(0,16).replace('T',' ')+'<br>'
-  + '三人麻雀競技団体ザンリーグの団体プロジェクト。数字は読み取り途中の暫定値。';
+  + '数字は読み取り途中の暫定値。選手名はOCRのため綴りが崩れている。';
 </script>
 </body>
 </html>
