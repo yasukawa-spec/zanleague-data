@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ザン企業リーグ データ | 2026シーズン</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root{
+  /* 公式サイト（thanm-mahjongg.com）の配色に合わせる：黒・深紅 #B50018・白・淡黄 */
+  --black:#0A0A0A; --ink:#141414; --muted:#5E5E5E; --faint:#8E8E8E;
+  --paper:#FFFFFF; --wash:#F4F4F4; --line:#E3E3E3; --line-hard:#C9C9C9;
+  --crimson:#B50018; --crimson-hi:#D4001C; --crimson-deep:#7E0011;
+  --highlight:#FFFFCC;
+  --r1:#B50018; --r2:#9A9A9A; --r3:#E0E0E0;
+  --good:#0F7A3D; --bad:#B50018;
+  --shadow:0 1px 0 rgba(0,0,0,.04),0 10px 26px -18px rgba(0,0,0,.28);
+  --disp:"Montserrat","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic UI",sans-serif;
+  --sans:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic UI",system-ui,sans-serif;
+  --num:"Montserrat","Noto Sans JP",sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --black:#000000; --ink:#F0F0F0; --muted:#A0A0A0; --faint:#767676;
+    --paper:#121212; --wash:#1B1B1B; --line:#2A2A2A; --line-hard:#3A3A3A;
+    --crimson:#E01024; --crimson-hi:#FF2438; --crimson-deep:#B50018;
+    --highlight:#3A3413;
+    --r1:#E01024; --r2:#6A6A6A; --r3:#2E2E2E;
+    --good:#41B876; --bad:#FF6B76;
+    --shadow:0 1px 0 rgba(0,0,0,.5),0 12px 30px -20px rgba(0,0,0,.9);
+  }
+}
+:root[data-theme="dark"]{
+  --black:#000000; --ink:#F0F0F0; --muted:#A0A0A0; --faint:#767676;
+  --paper:#121212; --wash:#1B1B1B; --line:#2A2A2A; --line-hard:#3A3A3A;
+  --crimson:#E01024; --crimson-hi:#FF2438; --crimson-deep:#B50018;
+  --highlight:#3A3413;
+  --r1:#E01024; --r2:#6A6A6A; --r3:#2E2E2E;
+  --good:#41B876; --bad:#FF6B76;
+  --shadow:0 1px 0 rgba(0,0,0,.5),0 12px 30px -20px rgba(0,0,0,.9);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:14px;
+  line-height:1.75;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+[hidden]{display:none!important}
+h1,h2,h3,h4{margin:0;font-family:var(--disp);font-weight:700;text-wrap:balance}
+/* ================= masthead ================= */
+.mast{background:var(--black);border-bottom:4px solid var(--crimson)}
+.mast .in{max-width:1300px;margin:0 auto;padding:0 22px}
+.top{display:flex;align-items:center;gap:20px;padding:16px 0 14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:11px}
+.logo .mark{width:34px;height:34px;background:var(--crimson);display:grid;place-items:center;
+  font-family:var(--disp);font-weight:800;font-size:19px;color:#FFF;line-height:1;flex:none}
+.logo .wm{font-family:var(--disp);font-weight:800;font-size:21px;letter-spacing:.05em;color:#FFF}
+.logo .wm small{display:block;font-size:9.5px;font-weight:600;letter-spacing:.26em;
+  color:var(--crimson-hi);margin-top:2px}
+.stats{display:flex;gap:0;margin-left:auto;flex-wrap:wrap;border-left:1px solid #262626}
+.stats div{padding:0 16px;border-right:1px solid #262626}
+.stats dt{font-family:var(--disp);font-size:9px;font-weight:700;letter-spacing:.16em;
+  color:#8A8A8A;margin:0}
+.stats dd{margin:1px 0 0;font-family:var(--num);font-weight:700;font-size:15px;color:#FFF;
+  font-variant-numeric:tabular-nums}
+nav{display:flex;overflow-x:auto}
+nav button{appearance:none;background:none;border:0;font-family:var(--disp);font-weight:700;
+  font-size:13.5px;color:#9A9A9A;padding:12px 22px;cursor:pointer;white-space:nowrap;
+  border-bottom:4px solid transparent;margin-bottom:-4px;letter-spacing:.02em}
+nav button:hover{color:#FFF;background:#161616}
+nav button[aria-selected="true"]{color:#FFF;border-bottom-color:var(--crimson)}
+nav button:focus-visible{outline:2px solid var(--crimson-hi);outline-offset:-5px}
+/* ================= shell ================= */
+.wrap{max-width:1300px;margin:0 auto;padding:28px 22px 80px}
+.vh{border-bottom:2px solid var(--black);padding-bottom:11px;margin-bottom:18px;
+  display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap}
+.vh h2{font-size:21px;letter-spacing:.02em}
+.vh h2 span{color:var(--crimson);margin-right:9px}
+.vh p{margin:0;color:var(--muted);font-size:12.5px;max-width:70ch}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 14px}
+.tools label{font-size:12px;color:var(--muted);font-weight:500}
+.tools select{font:inherit;font-size:13px;padding:5px 9px;background:var(--paper);
+  color:var(--ink);border:1px solid var(--line-hard);border-radius:0}
+.tools select:focus-visible{outline:2px solid var(--crimson);outline-offset:1px}
+.cnt{font-family:var(--num);font-size:11px;font-weight:600;color:var(--faint);margin-left:auto}
+/* ================= tables ================= */
+.scroll{overflow-x:auto;border:1px solid var(--line);background:var(--paper);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+thead th{background:var(--black);color:#E8E8E8;font-family:var(--disp);font-size:10.5px;
+  font-weight:700;letter-spacing:.05em;position:sticky;top:0;z-index:1;
+  vertical-align:bottom;border-bottom:0}
+thead th.s{cursor:pointer;user-select:none}
+thead th.s:hover{color:#FFF;background:#1D1D1D}
+thead th.s::after{content:"";opacity:.35;margin-left:5px}
+thead th.s[data-dir="asc"]::after{content:"▲";opacity:1;color:var(--crimson-hi)}
+thead th.s[data-dir="desc"]::after{content:"▼";opacity:1;color:var(--crimson-hi)}
+thead th .u{display:block;font-family:var(--sans);font-weight:400;font-size:9.5px;
+  color:#9A9A9A;letter-spacing:0;margin-top:2px}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:var(--wash)}
+.num{font-family:var(--num);font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.pos{color:var(--good)} .neg{color:var(--bad)} .thin{color:var(--faint);font-weight:400}
+.rk{font-family:var(--disp);font-weight:800;color:var(--faint);width:40px;text-align:right;
+  font-size:14px}
+.rk.top3{color:var(--crimson)}
+.pn{font-weight:500;min-width:130px}
+.pn button{appearance:none;background:none;border:0;font:inherit;font-weight:500;cursor:pointer;
+  color:var(--ink);padding:0;text-align:left;border-bottom:1px solid var(--line-hard)}
+.pn button:hover{color:var(--crimson);border-bottom-color:var(--crimson)}
+.pn button:focus-visible{outline:2px solid var(--crimson);outline-offset:2px}
+.tag{display:inline-block;font-family:var(--disp);font-size:9px;font-weight:700;padding:1px 5px;
+  background:var(--highlight);color:var(--ink);margin-left:6px;vertical-align:1px;
+  letter-spacing:.04em}
+/* 着順の帯（三人麻雀なので3色） */
+.dist{display:flex;height:8px;width:84px;background:var(--line);flex:none}
+.dist i{display:block;height:100%}
+.dist i.a{background:var(--r1)} .dist i.b{background:var(--r2)} .dist i.c{background:var(--r3)}
+.dw{display:flex;align-items:center;gap:9px;justify-content:flex-end}
+.dw code{font-family:var(--num);font-weight:600;font-size:11px;color:var(--faint);
+  min-width:46px;text-align:right}
+/* ================= ranking boards ================= */
+.grp{margin:0 0 32px}
+.gh{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.gh h3{font-size:15px;letter-spacing:.1em;background:var(--black);color:#FFF;
+  padding:5px 14px;font-weight:700}
+.gh h3.hot{background:var(--crimson)}
+.gh p{margin:0;font-size:12px;color:var(--faint)}
+.boards{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:14px}
+.bd{border:1px solid var(--line);background:var(--paper);box-shadow:var(--shadow);
+  display:flex;flex-direction:column}
+.bd>h4{font-family:var(--disp);font-size:11.5px;font-weight:700;letter-spacing:.04em;
+  padding:9px 13px;background:var(--wash);border-bottom:2px solid var(--black);
+  display:flex;justify-content:space-between;gap:10px;align-items:center}
+.bd>h4 em{font-style:normal;font-weight:600;color:var(--faint);font-size:9.5px;
+  font-family:var(--num);letter-spacing:.1em}
+.bd.hot>h4{border-bottom-color:var(--crimson);background:var(--highlight)}
+.bd ol{list-style:none;margin:0;padding:4px 0}
+.bd li{display:grid;grid-template-columns:20px 1fr auto;align-items:center;gap:10px;
+  padding:5px 13px}
+.bd li+li{border-top:1px solid var(--line)}
+.bd li .n{font-family:var(--disp);font-weight:800;font-size:11px;color:var(--faint);
+  text-align:right}
+.bd li:first-child .n{color:var(--crimson)}
+.bd li button{appearance:none;background:none;border:0;font:inherit;cursor:pointer;
+  color:inherit;padding:0;text-align:left;overflow:hidden;text-overflow:ellipsis}
+.bd li button:hover{color:var(--crimson)}
+.bd li .v{font-family:var(--num);font-size:13px;font-weight:700;
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.bd li .v s{text-decoration:none;font-size:9.5px;color:var(--faint);margin-left:5px;
+  font-weight:500}
+.bd .empty{padding:13px;color:var(--faint);font-size:12px}
+/* ================= roster ================= */
+.roster{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:12px}
+.pcard{border:1px solid var(--line);background:var(--paper);box-shadow:var(--shadow);
+  padding:0;text-align:left;cursor:pointer;font:inherit;color:inherit;display:flex;
+  flex-direction:column;border-top:3px solid var(--black)}
+.pcard:hover{border-top-color:var(--crimson)}
+.pcard:focus-visible{outline:2px solid var(--crimson);outline-offset:2px}
+.pcard .hd{display:flex;justify-content:space-between;align-items:baseline;gap:8px;
+  padding:11px 13px 8px}
+.pcard .nm{font-family:var(--disp);font-size:15.5px;font-weight:700}
+.pcard .lr{font-family:var(--disp);font-weight:800;font-size:13px;color:var(--crimson)}
+.pcard dl{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin:0;background:var(--line)}
+.pcard dl>div{background:var(--paper);padding:6px 13px}
+.pcard dt{color:var(--faint);font-size:10px;margin:0}
+.pcard dd{margin:0;font-family:var(--num);font-weight:700;font-size:13px;
+  font-variant-numeric:tabular-nums}
+/* ================= profile ================= */
+#prof{border:1px solid var(--black);background:var(--paper);box-shadow:var(--shadow);
+  margin-bottom:24px}
+.ph{background:var(--black);color:#FFF;padding:16px 20px;display:flex;
+  justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;
+  border-bottom:4px solid var(--crimson)}
+.ph h3{font-size:23px;color:#FFF}
+.ph .sub{font-family:var(--num);font-size:11px;font-weight:500;color:#9A9A9A;margin:4px 0 0}
+.ph .off{text-align:right}
+.ph .off b{display:block;font-family:var(--disp);font-size:26px;font-weight:800;
+  color:var(--crimson-hi);line-height:1.1}
+.ph .off span{font-family:var(--num);font-size:10.5px;font-weight:600;color:#9A9A9A}
+.ph button{appearance:none;background:none;border:1px solid #3A3A3A;color:#E8E8E8;
+  font:inherit;font-size:12px;padding:4px 11px;cursor:pointer}
+.ph button:hover{background:#1D1D1D;border-color:var(--crimson)}
+.pb{padding:18px 20px}
+h4.sec{font-family:var(--disp);font-size:11px;font-weight:700;letter-spacing:.12em;
+  color:var(--ink);margin:0 0 9px;padding-left:9px;border-left:4px solid var(--crimson)}
+.mg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);margin:0 0 20px}
+.mg>div{background:var(--paper);padding:10px 12px}
+.mg dt{font-size:10px;color:var(--faint);font-weight:500;margin:0}
+.mg dd{margin:2px 0 0;font-family:var(--num);font-size:18px;font-weight:700;
+  font-variant-numeric:tabular-nums;line-height:1.3}
+.mg dd s{text-decoration:none;font-size:10px;color:var(--faint);font-weight:500;margin-left:3px}
+.mg.hot>div{background:var(--highlight)}
+.hl{display:flex;align-items:center;gap:12px;margin:0 0 18px;flex-wrap:wrap}
+.hl .dist{width:210px;height:11px}
+.hl code{font-family:var(--num);font-weight:600;font-size:12px;color:var(--muted)}
+/* ================= notes ================= */
+.legend{display:flex;gap:15px;font-family:var(--num);font-size:10.5px;font-weight:600;
+  color:var(--faint);flex-wrap:wrap;align-items:center;margin:12px 0 0}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend i{width:11px;height:11px;display:block}
+.legend i.a{background:var(--r1)} .legend i.b{background:var(--r2)} .legend i.c{background:var(--r3)}
+.note{border-top:2px solid var(--black);background:var(--wash);padding:15px 18px;
+  margin:26px 0 0;font-size:12.5px;color:var(--muted)}
+.note b{color:var(--ink)}
+.note>strong{display:block;font-family:var(--disp);font-size:12px;letter-spacing:.06em;
+  color:var(--ink);margin-bottom:7px}
+.note ul{margin:0;padding-left:19px} .note li{margin:3px 0}
+footer{background:var(--black);color:#8A8A8A;margin-top:44px}
+footer .in{max-width:1300px;margin:0 auto;padding:20px 22px;font-family:var(--num);
+  font-size:11px;font-weight:500;line-height:1.9}
+footer b{color:#D8D8D8}
+@media (max-width:680px){
+  .mast .in,.wrap,footer .in{padding-left:13px;padding-right:13px}
+  .logo .wm{font-size:17px} .stats{margin-left:0;border-left:0;border-top:1px solid #262626;
+    padding-top:8px;width:100%}
+  .stats div:first-child{padding-left:0}
+  th,td{padding:8px 9px} .ph h3{font-size:19px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="mast"><div class="in">
+  <div class="top">
+    <div class="logo">
+      <span class="mark">Z</span>
+      <span class="wm">ザン企業リーグ<small>DATA 2026</small></span>
+    </div>
+    <dl class="stats">
+      <div><dt>KAISEN</dt><dd id="dKai"></dd></div>
+      <div><dt>HANCHAN</dt><dd id="dHan"></dd></div>
+      <div><dt>KYOKU</dt><dd id="dHands"></dd></div>
+      <div><dt>PLAYERS</dt><dd id="dPl"></dd></div>
+      <div><dt>読み取り</dt><dd id="dVid"></dd></div>
+    </dl>
+  </div>
+  <nav role="tablist">
+    <button role="tab" id="t-s" aria-selected="true">総合順位</button>
+    <button role="tab" id="t-r" aria-selected="false">ランキング</button>
+    <button role="tab" id="t-p" aria-selected="false">選手名鑑</button>
+  </nav>
+</div></div>
+
+<div class="wrap">
+
+<section id="v-s">
+  <div class="vh">
+    <h2><span>01</span>総合順位</h2>
+    <p>順位と累計チップ枚数は<b>配信のテロップに出ている公式の数字</b>。この団体の成績は素点ではなくチップで決まる（第37条）。右側の各指標は読み取れた半荘だけの参考値。</p>
+  </div>
+  <div class="scroll"><table id="ts"><thead><tr>
+    <th class="rk">順位</th><th class="pn">選手</th>
+    <th class="s num" data-k="telopChips">累計チップ<span class="u">枚・テロップ</span></th>
+    <th class="s num" data-k="hanchans">半荘<span class="u">読めた数</span></th>
+    <th class="s num" data-k="hands">局</th>
+    <th class="s num" data-k="topRate">トップ率</th>
+    <th class="num">着順<span class="u">1着・2着・3着</span></th>
+    <th class="s num" data-k="avgRankInv">平均着順</th>
+    <th class="s num" data-k="chipTotal">チップ収支<span class="u">読めた分</span></th>
+    <th class="s num" data-k="winRate">和了率</th>
+    <th class="s num" data-k="dealInRateInv">放銃率</th>
+    <th class="s num" data-k="riichiRate">リーチ率</th>
+    <th class="s num" data-k="avgWinPoints">平均打点</th>
+    <th class="s num" data-k="avgLossPoints">平均失点</th>
+  </tr></thead><tbody></tbody></table></div>
+  <div class="legend">
+    <span><i class="a"></i>1着</span><span><i class="b"></i>2着</span><span><i class="c"></i>3着</span>
+    <span>列見出しを押すと並べ替わります</span>
+  </div>
+  <p class="note"><strong>累計チップとチップ収支は一致しない</strong>
+    前者はシーズン開始からの公式の累計、後者は読み取れた <span id="nHan"></span> 半荘だけを規定の換算表で精算した合計。<b>1着の受け取りは2着と3着の支払い合計</b>なので、トップの価値は他2人をどれだけ沈ませたかで変わる。</p>
+</section>
+
+<section id="v-r" hidden>
+  <div class="vh">
+    <h2><span>02</span>ランキング</h2>
+    <p>攻め・守り・運の3つの面から見る。<b>運</b>は本人の技量では動かない要素（裏ドラ・華牌の引き）と、被害の大きさ。</p>
+  </div>
+  <div class="tools">
+    <label for="rMin">最低局数</label>
+    <select id="rMin">
+      <option value="0">すべて</option><option value="5">5局以上</option>
+      <option value="10" selected>10局以上</option><option value="15">15局以上</option>
+    </select>
+    <span class="cnt" id="rCount"></span>
+  </div>
+  <div class="grp">
+    <div class="gh"><h3>攻め</h3><p>上がる力</p></div>
+    <div class="boards" id="bAtk"></div>
+  </div>
+  <div class="grp">
+    <div class="gh"><h3>守り</h3><p>振らない力・沈まない力</p></div>
+    <div class="boards" id="bDef"></div>
+  </div>
+  <div class="grp">
+    <div class="gh"><h3 class="hot">運</h3><p>技量では動かない要素。誰が引きが強く、誰が損をしているか</p></div>
+    <div class="boards" id="bLuck"></div>
+  </div>
+</section>
+
+<section id="v-p" hidden>
+  <div class="vh">
+    <h2><span>03</span>選手名鑑</h2>
+    <p>名前を押すと個人のページが開く。半荘ごとの着順・最終素点・チップ・華牌の履歴まで見られる。</p>
+  </div>
+  <div class="tools">
+    <label for="pSort">並び</label>
+    <select id="pSort">
+      <option value="telopRankInv" selected>リーグ順位</option>
+      <option value="hands">局数</option>
+      <option value="winRate">和了率</option>
+      <option value="topRate">トップ率</option>
+      <option value="telopChips">累計チップ</option>
+    </select>
+    <label for="pUn">名前未読の席</label>
+    <select id="pUn"><option value="1" selected>含める</option><option value="">除く</option></select>
+    <span class="cnt" id="pCount"></span>
+  </div>
+  <div id="prof" hidden></div>
+  <div class="roster" id="roster"></div>
+</section>
+
+<p class="note">
+  <strong>数字の読み方と、いま出せていないもの</strong>
+  <ul>
+    <li><b>放銃率はロンで振ったときだけ。</b>ツモられて払った分は平均失点に入る</li>
+    <li><b>裏乗り率の母数はリーチ和了だけ。</b>裏が乗るのはリーチ和了のみなので、全和了を母数にすると実際より低く出る</li>
+    <li><b>華牌</b>は抜きドラ（この団体は北ではなく華牌4枚）。4枚そろうと祝儀になるので、引きの強さがそのまま成績に効く</li>
+    <li><b>副露率と平均和了巡目は出せない。</b>どちらもテロップに無く、副露牌と河の牌を数える必要がある（牌の認識が必要）</li>
+    <li>候補が複数残った局は成績から除いている。素点の差分だけでは和了の型が決まらず、誰が何点上がったか確定できないため</li>
+    <li><b>選手名は暫定。</b>OCR が中国語字形を返すため綴りがずれる（「消防士あずこ」→「消防士」）。<span class="tag">名前未読</span> は名前が読めなかった席。名簿があれば「決まった候補との照合」になり精度が上がる</li>
+  </ul>
+</p>
+
+</div>
+
+<footer><div class="in" id="foot"></div></footer>
+
+<script>
+var D = {"generatedAt":"2026-09-09T08:12:27.620Z","season":2026,"coverage":{"videos":7,"totalInSeason":42,"hanchans":13,"hands":104,"solved":71,"multi":31,"none":2,"rankedHanchans":13,"unrankedHanchans":0,"kaisenFrom":116,"kaisenTo":132,"names":25,"clustered":25},"players":[{"name":"東家?","nameUnread":true,"hanchans":4,"hands":26,"wins":5,"deals":2,"riichis":8,"winRate":19.2,"dealInRate":7.7,"riichiRate":30.8,"avgWinPoints":12400,"avgLossPoints":8071,"avgDealInPoints":18000,"avgTsumoLossPoints":6417,"winPoints":62000,"dealInPoints":36000,"uraHitRate":50,"avgUraTiles":3,"uraKnown":2,"uraWins":1,"uraTiles":3,"r1":1,"r2":0,"r3":3,"topRate":25,"lastRate":75,"avgRank":2.5,"avgFinalPoints":29000,"bust":2,"chipTotal":-30,"chipPerHanchan":-7.5,"chipHanchans":4,"hanaPerHanchan":0.75,"hanaTotal":3,"hana4":0,"telopChips":25,"telopRank":8,"telopKaisen":132,"log":[{"video":"B_R-yU7EeP4","kaisen":132,"title":"ザン企業リーグ2026 決勝（132回戦）","hanchan":1,"seat":"東家","rank":1,"points":94000,"chips":16,"hana":1},{"video":"Bqix9Y1N7i4","kaisen":128,"title":"【賞金230万円】単騎は西で待て!? 混一色七対子小車輪リーチ!!【ザン企業リーグ2026  予選128回戦 129回戦】","hanchan":1,"seat":"東家","rank":3,"points":-4000,"chips":-18,"hana":0},{"video":"k87-vSHQE2o","kaisen":118,"title":"【賞金230万円】通過ボーダーギリギリ!? この1戦が勝ち残りを左右する!?【ザン企業リーグ2026  予選118回戦 119回戦】","hanchan":1,"seat":"東家","rank":3,"points":-5000,"chips":-18,"hana":1},{"video":"k87-vSHQE2o","kaisen":118,"title":"【賞金230万円】通過ボーダーギリギリ!? この1戦が勝ち残りを左右する!?【ザン企業リーグ2026  予選118回戦 119回戦】","hanchan":2,"seat":"東家","rank":3,"points":31000,"chips":-10,"hana":1}]},{"name":"西家?","nameUnread":true,"hanchans":3,"hands":22,"wins":8,"deals":2,"riichis":5,"winRate":36.4,"dealInRate":9.1,"riichiRate":22.7,"avgWinPoints":12500,"avgLossPoints":10300,"avgDealInPoints":15000,"avgTsumoLossPoints":9125,"winPoints":100000,"dealInPoints":30000,"uraHitRate":0,"avgUraTiles":null,"uraKnown":4,"uraWins":0,"uraTiles":0,"r1":1,"r2":1,"r3":1,"topRate":33.3,"lastRate":33.3,"avgRank":2,"avgFinalPoints":50000,"bust":0,"chipTotal":2,"chipPerHanchan":0.67,"chipHanchans":3,"hanaPerHanchan":1,"hanaTotal":3,"hana4":0,"telopChips":54,"telopRank":4,"telopKaisen":124,"log":[{"video":"99WUaffuy5o","kaisen":124,"title":"【賞金230万円】清一色三面張オープンリーチ!? 予選通過へ望みをかけた一手!!【ザン企業リーグ2026  予選124回戦 125回戦】","hanchan":2,"seat":"西家","rank":2,"points":62000,"chips":2,"hana":1},{"video":"k87-vSHQE2o","kaisen":118,"title":"【賞金230万円】通過ボーダーギリギリ!? この1戦が勝ち残りを左右する!?【ザン企業リーグ2026  予選118回戦 119回戦】","hanchan":1,"seat":"西家","rank":1,"points":87000,"chips":16,"hana":0},{"video":"dGyVCCPDrFU","kaisen":116,"title":"【賞金230万円】オープンリーチに手牌4枚でしのげるか!?【ザン企業リーグ2026  予選116回戦 117回戦】","hanchan":1,"seat":"西家","rank":3,"points":1000,"chips":-16,"hana":2}]},{"name":"加藤博己","nameUnread":false,"hanchans":2,"hands":15,"wins":6,"deals":2,"riichis":7,"winRate":40,"dealInRate":13.3,"riichiRate":46.7,"avgWinPoints":15000,"avgLossPoints":11000,"avgDealInPoints":12000,"avgTsumoLossPoints":10333,"winPoints":90000,"dealInPoints":24000,"uraHitRate":25,"avgUraTiles":1,"uraKnown":4,"uraWins":1,"uraTiles":1,"r1":1,"r2":1,"r3":0,"topRate":50,"lastRate":0,"avgRank":1.5,"avgFinalPoints":62500,"bust":0,"chipTotal":12,"chipPerHanchan":6,"chipHanchans":2,"hanaPerHanchan":1.5,"hanaTotal":3,"hana4":0,"telopChips":85,"telopRank":22,"telopKaisen":124,"log":[{"video":"99WUaffuy5o","kaisen":124,"title":"【賞金230万円】清一色三面張オープンリーチ!? 予選通過へ望みをかけた一手!!【ザン企業リーグ2026  予選124回戦 125回戦】","hanchan":1,"seat":"南家","rank":2,"points":61000,"chips":2,"hana":1},{"video":"99WUaffuy5o","kaisen":124,"title":"【賞金230万円】清一色三面張オープンリーチ!? 予選通過へ望みをかけた一手!!【ザン企業リーグ2026  予選124回戦 125回戦】","hanchan":2,"seat":"東家","rank":1,"points":64000,"chips":10,"hana":2}]},{"name":"饭田弦己","nameUnread":false,"hanchans":2,"hands":15,"wins":3,"deals":3,"riichis":5,"winRate":20,"dealInRate":20,"riichiRate":33.3,"avgWinPoints":12000,"avgLossPoints":9333,"avgDealInPoints":9333,"avgTsumoLossPoints":9333,"winPoints":36000,"dealInPoints":28000,"uraHitRate":0,"avgUraTiles":null,"uraKnown":2,"uraWins":0,"uraTiles":0,"r1":0,"r2":0,"r3":2,"topRate":0,"lastRate":100,"avgRank":3,"avgFinalPoints":24000,"bust":0,"chipTotal":-24,"chipPerHanchan":-12,"chipHanchans":2,"hanaPerHanchan":1,"hanaTotal":2,"hana4":0,"telopChips":83,"telopRank":20,"telopKaisen":124,"log":[{"video":"99WUaffuy5o","kaisen":124,"title":"【賞金230万円】清一色三面張オープンリーチ!? 予選通過へ望みをかけた一手!!【ザン企業リーグ2026  予選124回戦 125回戦】","hanchan":1,"seat":"西家","rank":3,"points":24000,"chips":-12,"hana":1},{"video":"99WUaffuy5o","kaisen":124,"title":"【賞金230万円】清一色三面張オープンリーチ!? 予選通過へ望みをかけた一手!!【ザン企業リーグ2026  予選124回戦 125回戦】","hanchan":2,"seat":"南家","rank":3,"points":24000,"chips":-12,"hana":1}]},{"name":"yp夫","nameUnread":false,"hanchans":2,"hands":15,"wins":6,"deals":1,"riichis":6,"winRate":40,"dealInRate":6.7,"riichiRate":40,"avgWinPoints":19000,"avgLossPoints":7000,"avgDealInPoints":12000,"avgTsumoLossPoints":5750,"winPoints":114000,"dealInPoints":12000,"uraHitRate":0,"avgUraTiles":null,"uraKnown":4,"uraWins":0,"uraTiles":0,"r1":2,"r2":0,"r3":0,"topRate":100,"lastRate":0,"avgRank":1,"avgFinalPoints":101500,"bust":0,"chipTotal":36,"chipPerHanchan":18,"chipHanchans":2,"hanaPerHanchan":1,"hanaTotal":2,"hana4":0,"telopChips":45,"telopRank":17,"telopKaisen":116,"log":[{"video":"dGyVCCPDrFU","kaisen":116,"title":"【賞金230万円】オープンリーチに手牌4枚でしのげるか!?【ザン企業リーグ2026  予選116回戦 117回戦】","hanchan":1,"seat":"南家","rank":1,"points":140000,"chips":26,"hana":0},{"video":"dGyVCCPDrFU","kaisen":116,"title":"【賞金230万円】オープンリーチに手牌4枚でしのげるか!?【ザン企業リーグ2026  予選116回戦 117回戦】","hanchan":2,"seat":"東家","rank":1,"points":63000,"chips":10,"hana":2}]},{"name":"仙台","nameUnread":false,"hanchans":2,"hands":12,"wins":5,"deals":0,"riichis":5,"winRate":41.7,"dealInRate":0,"riichiRate":41.7,"avgWinPoints":15600,"avgLossPoints":7400,"avgDealInPoints":null,"avgTsumoLossPoints":7400,"winPoints":78000,"dealInPoints":0,"uraHitRate":20,"avgUraTiles":1,"uraKnown":5,"uraWins":1,"uraTiles":1,"r1":1,"r2":1,"r3":0,"topRate":50,"lastRate":0,"avgRank":1.5,"avgFinalPoints":81000,"bust":0,"chipTotal":18,"chipPerHanchan":9,"chipHanchans":2,"hanaPerHanchan":2,"hanaTotal":4,"hana4":0,"telopChips":43,"telopRank":5,"telopKaisen":128,"log":[{"video":"Bqix9Y1N7i4","kaisen":128,"title":"【賞金230万円】単騎は西で待て!? 混一色七対子小車輪リーチ!!【ザン企業リーグ2026  予選128回戦 129回戦】","hanchan":1,"seat":"南家","rank":1,"points":103000,"chips":18,"hana":3},{"video":"Bqix9Y1N7i4","kaisen":128,"title":"【賞金230万円】単騎は西で待て!? 混一色七対子小車輪リーチ!!【ザン企業リーグ2026  予選128回戦 129回戦】","hanchan":2,"seat":"東家","rank":2,"points":59000,"chips":0,"hana":1}]},{"name":"消防士","nameUnread":false,"hanchans":1,"hands":11,"wins":2,"deals":3,"riichis":2,"winRate":18.2,"dealInRate":27.3,"riichiRate":18.2,"avgWinPoints":10000,"avgLossPoints":8571,"avgDealInPoints":10667,"avgTsumoLossPoints":7000,"winPoints":20000,"dealInPoints":32000,"uraHitRate":0,"avgUraTiles":null,"uraKnown":1,"uraWins":0,"uraTiles":0,"r1":0,"r2":0,"r3":1,"topRate":0,"lastRate":100,"avgRank":3,"avgFinalPoints":6000,"bust":0,"chipTotal":-16,"chipPerHanchan":-16,"chipHanchans":1,"hanaPerHanchan":1,"hanaTotal":1,"hana4":0,"telopChips":-72,"telopRank":19,"telopKaisen":132,"log":[{"video":"B_R-yU7EeP4","kaisen":132,"title":"ザン企業リーグ2026 決勝（132回戦）","hanchan":1,"seat":"南家","rank":3,"points":6000,"chips":-16,"hana":1}]},{"name":"竹h","nameUnread":false,"hanchans":1,"hands":11,"wins":3,"deals":2,"riichis":3,"winRate":27.3,"dealInRate":18.2,"riichiRate":27.3,"avgWinPoints":14000,"avgLossPoints":8800,"avgDealInPoints":12000,"avgTsumoLossPoints":6667,"winPoints":42000,"dealInPoints":24000,"uraHitRate":0,"avgUraTiles":null,"uraKnown":1,"uraWins":0,"uraTiles":0,"r1":0,"r2":1,"r3":0,"topRate":0,"lastRate":0,"avgRank":2,"avgFinalPoints":50000,"bust":0,"chipTotal":0,"chipPerHanchan":0,"chipHanchans":1,"hanaPerHanchan":1,"hanaTotal":1,"hana4":0,"telopChips":101,"telopRank":22,"telopKaisen":132,"log":[{"video":"B_R-yU7EeP4","kaisen":132,"title":"ザン企業リーグ2026 決勝（132回戦）","hanchan":1,"seat":"西家","rank":2,"points":50000,"chips":0,"hana":1}]},{"name":"雀24枚","nameUnread":false,"hanchans":1,"hands":9,"wins":3,"deals":1,"riichis":3,"winRate":33.3,"dealInRate":11.1,"riichiRate":33.3,"avgWinPoints":14000,"avgLossPoints":7500,"avgDealInPoints":12000,"avgTsumoLossPoints":6000,"winPoints":42000,"dealInPoints":12000,"uraHitRate":0,"avgUraTiles":null,"uraKnown":1,"uraWins":0,"uraTiles":0,"r1":0,"r2":1,"r3":0,"topRate":0,"lastRate":0,"avgRank":2,"avgFinalPoints":62000,"bust":0,"chipTotal":2,"chipPerHanchan":2,"chipHanchans":1,"hanaPerHanchan":1,"hanaTotal":1,"hana4":0,"telopChips":-25,"telopRank":16,"telopKaisen":116,"log":[{"video":"dGyVCCPDrFU","kaisen":116,"title":"【賞金230万円】オープンリーチに手牌4枚でしのげるか!?【ザン企業リーグ2026  予選116回戦 117回戦】","hanchan":2,"seat":"南家","rank":2,"points":62000,"chips":2,"hana":1}]},{"name":"一以大魔王E9枚","nameUnread":false,"hanchans":1,"hands":9,"wins":2,"deals":1,"riichis":5,"winRate":22.2,"dealInRate":11.1,"riichiRate":55.6,"avgWinPoints":12000,"avgLossPoints":8200,"avgDealInPoints":8000,"avgTsumoLossPoints":8250,"winPoints":24000,"dealInPoints":8000,"uraHitRate":0,"avgUraTiles":null,"uraKnown":2,"uraWins":0,"uraTiles":0,"r1":0,"r2":0,"r3":1,"topRate":0,"lastRate":100,"avgRank":3,"avgFinalPoints":25000,"bust":0,"chipTotal":-12,"chipPerHanchan":-12,"chipHanchans":1,"hanaPerHanchan":2,"hanaTotal":2,"hana4":0,"telopChips":-9,"telopRank":13,"telopKaisen":116,"log":[{"video":"dGyVCCPDrFU","kaisen":116,"title":"【賞金230万円】オープンリーチに手牌4枚でしのげるか!?【ザン企業リーグ2026  予選116回戦 117回戦】","hanchan":2,"seat":"西家","rank":3,"points":25000,"chips":-12,"hana":2}]},{"name":"祐介","nameUnread":false,"hanchans":1,"hands":8,"wins":4,"deals":2,"riichis":2,"winRate":50,"dealInRate":25,"riichiRate":25,"avgWinPoints":13500,"avgLossPoints":10000,"avgDealInPoints":12000,"avgTsumoLossPoints":8000,"winPoints":54000,"dealInPoints":24000,"uraHitRate":0,"avgUraTiles":null,"uraKnown":2,"uraWins":0,"uraTiles":0,"r1":0,"r2":1,"r3":0,"topRate":0,"lastRate":0,"avgRank":2,"avgFinalPoints":68000,"bust":0,"chipTotal":2,"chipPerHanchan":2,"chipHanchans":1,"hanaPerHanchan":1,"hanaTotal":1,"hana4":0,"telopChips":33,"telopRank":17,"telopKaisen":118,"log":[{"video":"k87-vSHQE2o","kaisen":118,"title":"【賞金230万円】通過ボーダーギリギリ!? この1戦が勝ち残りを左右する!?【ザン企業リーグ2026  予選118回戦 119回戦】","hanchan":1,"seat":"南家","rank":2,"points":68000,"chips":2,"hana":1}]},{"name":"凉宫麻由","nameUnread":false,"hanchans":1,"hands":7,"wins":3,"deals":2,"riichis":2,"winRate":42.9,"dealInRate":28.6,"riichiRate":28.6,"avgWinPoints":18667,"avgLossPoints":11000,"avgDealInPoints":10000,"avgTsumoLossPoints":12000,"winPoints":56000,"dealInPoints":20000,"uraHitRate":0,"avgUraTiles":null,"uraKnown":1,"uraWins":0,"uraTiles":0,"r1":1,"r2":0,"r3":0,"topRate":100,"lastRate":0,"avgRank":1,"avgFinalPoints":65000,"bust":0,"chipTotal":10,"chipPerHanchan":10,"chipHanchans":1,"hanaPerHanchan":0,"hanaTotal":0,"hana4":0,"telopChips":45,"telopRank":4,"telopKaisen":124,"log":[{"video":"99WUaffuy5o","kaisen":124,"title":"【賞金230万円】清一色三面張オープンリーチ!? 予選通過へ望みをかけた一手!!【ザン企業リーグ2026  予選124回戦 125回戦】","hanchan":1,"seat":"東家","rank":1,"points":65000,"chips":10,"hana":0}]},{"name":"土井裕美子","nameUnread":false,"hanchans":1,"hands":6,"wins":2,"deals":2,"riichis":2,"winRate":33.3,"dealInRate":33.3,"riichiRate":33.3,"avgWinPoints":13000,"avgLossPoints":12667,"avgDealInPoints":15000,"avgTsumoLossPoints":8000,"winPoints":26000,"dealInPoints":30000,"uraHitRate":0,"avgUraTiles":null,"uraKnown":2,"uraWins":0,"uraTiles":0,"r1":0,"r2":1,"r3":0,"topRate":0,"lastRate":0,"avgRank":2,"avgFinalPoints":51000,"bust":0,"chipTotal":0,"chipPerHanchan":0,"chipHanchans":1,"hanaPerHanchan":1,"hanaTotal":1,"hana4":0,"telopChips":112,"telopRank":2,"telopKaisen":128,"log":[{"video":"Bqix9Y1N7i4","kaisen":128,"title":"【賞金230万円】単騎は西で待て!? 混一色七対子小車輪リーチ!!【ザン企業リーグ2026  予選128回戦 129回戦】","hanchan":1,"seat":"西家","rank":2,"points":51000,"chips":0,"hana":1}]},{"name":"XU7口BOSS113枚","nameUnread":false,"hanchans":1,"hands":6,"wins":4,"deals":0,"riichis":5,"winRate":66.7,"dealInRate":0,"riichiRate":83.3,"avgWinPoints":12500,"avgLossPoints":5000,"avgDealInPoints":null,"avgTsumoLossPoints":5000,"winPoints":50000,"dealInPoints":0,"uraHitRate":25,"avgUraTiles":1,"uraKnown":4,"uraWins":1,"uraTiles":1,"r1":1,"r2":0,"r3":0,"topRate":100,"lastRate":0,"avgRank":1,"avgFinalPoints":75000,"bust":0,"chipTotal":14,"chipPerHanchan":14,"chipHanchans":1,"hanaPerHanchan":2,"hanaTotal":2,"hana4":0,"telopChips":44,"telopRank":2,"telopKaisen":128,"log":[{"video":"Bqix9Y1N7i4","kaisen":128,"title":"【賞金230万円】単騎は西で待て!? 混一色七対子小車輪リーチ!!【ザン企業リーグ2026  予選128回戦 129回戦】","hanchan":2,"seat":"南家","rank":1,"points":75000,"chips":14,"hana":2}]},{"name":"RON山口","nameUnread":false,"hanchans":1,"hands":6,"wins":1,"deals":2,"riichis":2,"winRate":16.7,"dealInRate":33.3,"riichiRate":33.3,"avgWinPoints":12000,"avgLossPoints":7800,"avgDealInPoints":10000,"avgTsumoLossPoints":6333,"winPoints":12000,"dealInPoints":20000,"uraHitRate":0,"avgUraTiles":null,"uraKnown":1,"uraWins":0,"uraTiles":0,"r1":0,"r2":0,"r3":1,"topRate":0,"lastRate":100,"avgRank":3,"avgFinalPoints":16000,"bust":0,"chipTotal":-14,"chipPerHanchan":-14,"chipHanchans":1,"hanaPerHanchan":0,"hanaTotal":0,"hana4":0,"telopChips":9,"telopRank":9,"telopKaisen":128,"log":[{"video":"Bqix9Y1N7i4","kaisen":128,"title":"【賞金230万円】単騎は西で待て!? 混一色七対子小車輪リーチ!!【ザン企業リーグ2026  予選128回戦 129回戦】","hanchan":2,"seat":"西家","rank":3,"points":16000,"chips":-14,"hana":0}]},{"name":"N社長","nameUnread":false,"hanchans":1,"hands":6,"wins":0,"deals":0,"riichis":2,"winRate":0,"dealInRate":0,"riichiRate":33.3,"avgWinPoints":null,"avgLossPoints":12667,"avgDealInPoints":null,"avgTsumoLossPoints":12667,"winPoints":0,"dealInPoints":0,"uraHitRate":null,"avgUraTiles":null,"uraKnown":0,"uraWins":0,"uraTiles":0,"r1":0,"r2":1,"r3":0,"topRate":0,"lastRate":0,"avgRank":2,"avgFinalPoints":8000,"bust":0,"chipTotal":-10,"chipPerHanchan":-10,"chipHanchans":1,"hanaPerHanchan":1,"hanaTotal":1,"hana4":0,"telopChips":12,"telopRank":9,"telopKaisen":116,"log":[{"video":"dGyVCCPDrFU","kaisen":116,"title":"【賞金230万円】オープンリーチに手牌4枚でしのげるか!?【ザン企業リーグ2026  予選116回戦 117回戦】","hanchan":1,"seat":"東家","rank":2,"points":8000,"chips":-10,"hana":1}]},{"name":"南家?","nameUnread":true,"hanchans":2,"hands":5,"wins":3,"deals":0,"riichis":2,"winRate":60,"dealInRate":0,"riichiRate":40,"avgWinPoints":14667,"avgLossPoints":null,"avgDealInPoints":null,"avgTsumoLossPoints":null,"winPoints":44000,"dealInPoints":0,"uraHitRate":0,"avgUraTiles":null,"uraKnown":2,"uraWins":0,"uraTiles":0,"r1":0,"r2":2,"r3":0,"topRate":0,"lastRate":0,"avgRank":2,"avgFinalPoints":45500,"bust":0,"chipTotal":-4,"chipPerHanchan":-2,"chipHanchans":2,"hanaPerHanchan":1.5,"hanaTotal":3,"hana4":0,"telopChips":67,"telopRank":19,"telopKaisen":120,"log":[{"video":"wlmFy5so4_0","kaisen":120,"title":"【賞金230万円】企業リーグ2026ラストスパート!! 関西最終戦!! 関東は最終節突入! 【ザン企業リーグ2026  予選120回戦 121回戦】","hanchan":1,"seat":"南家","rank":2,"points":56000,"chips":0,"hana":3},{"video":"wlmFy5so4_0","kaisen":120,"title":"【賞金230万円】企業リーグ2026ラストスパート!! 関西最終戦!! 関東は最終節突入! 【ザン企業リーグ2026  予選120回戦 121回戦】","hanchan":2,"seat":"南家","rank":2,"points":35000,"chips":-4,"hana":0}]},{"name":"箕浦","nameUnread":false,"hanchans":2,"hands":4,"wins":0,"deals":1,"riichis":1,"winRate":0,"dealInRate":25,"riichiRate":25,"avgWinPoints":null,"avgLossPoints":11000,"avgDealInPoints":12000,"avgTsumoLossPoints":10000,"winPoints":0,"dealInPoints":12000,"uraHitRate":null,"avgUraTiles":null,"uraKnown":0,"uraWins":0,"uraTiles":0,"r1":0,"r2":0,"r3":2,"topRate":0,"lastRate":100,"avgRank":3,"avgFinalPoints":16000,"bust":0,"chipTotal":-28,"chipPerHanchan":-14,"chipHanchans":2,"hanaPerHanchan":1,"hanaTotal":2,"hana4":0,"telopChips":8,"telopRank":12,"telopKaisen":122,"log":[{"video":"_5pG8HAmidc","kaisen":122,"title":"【賞金230万円】国士無双vs緑一色!? 奇跡の役満対決の軍配はどちらに上がるか!?【ザン企業リーグ2026  予選122回戦 123回戦】","hanchan":1,"seat":"東家","rank":3,"points":28000,"chips":-12,"hana":1},{"video":"_5pG8HAmidc","kaisen":122,"title":"【賞金230万円】国士無双vs緑一色!? 奇跡の役満対決の軍配はどちらに上がるか!?【ザン企業リーグ2026  予選122回戦 123回戦】","hanchan":2,"seat":"西家","rank":3,"points":4000,"chips":-16,"hana":1}]},{"name":"力走","nameUnread":false,"hanchans":1,"hands":3,"wins":2,"deals":0,"riichis":1,"winRate":66.7,"dealInRate":0,"riichiRate":33.3,"avgWinPoints":14000,"avgLossPoints":null,"avgDealInPoints":null,"avgTsumoLossPoints":null,"winPoints":28000,"dealInPoints":0,"uraHitRate":0,"avgUraTiles":null,"uraKnown":1,"uraWins":0,"uraTiles":0,"r1":1,"r2":0,"r3":0,"topRate":100,"lastRate":0,"avgRank":1,"avgFinalPoints":78000,"bust":0,"chipTotal":14,"chipPerHanchan":14,"chipHanchans":1,"hanaPerHanchan":0,"hanaTotal":0,"hana4":0,"telopChips":30,"telopRank":16,"telopKaisen":122,"log":[{"video":"_5pG8HAmidc","kaisen":122,"title":"【賞金230万円】国士無双vs緑一色!? 奇跡の役満対決の軍配はどちらに上がるか!?【ザン企業リーグ2026  予選122回戦 123回戦】","hanchan":1,"seat":"南家","rank":1,"points":78000,"chips":14,"hana":0}]},{"name":"堀内正人","nameUnread":false,"hanchans":1,"hands":3,"wins":0,"deals":0,"riichis":0,"winRate":0,"dealInRate":0,"riichiRate":0,"avgWinPoints":null,"avgLossPoints":6000,"avgDealInPoints":null,"avgTsumoLossPoints":6000,"winPoints":0,"dealInPoints":0,"uraHitRate":null,"avgUraTiles":null,"uraKnown":0,"uraWins":0,"uraTiles":0,"r1":0,"r2":1,"r3":0,"topRate":0,"lastRate":0,"avgRank":2,"avgFinalPoints":44000,"bust":0,"chipTotal":-2,"chipPerHanchan":-2,"chipHanchans":1,"hanaPerHanchan":0,"hanaTotal":0,"hana4":0,"telopChips":113,"telopRank":2,"telopKaisen":122,"log":[{"video":"_5pG8HAmidc","kaisen":122,"title":"【賞金230万円】国士無双vs緑一色!? 奇跡の役満対決の軍配はどちらに上がるか!?【ザン企業リーグ2026  予選122回戦 123回戦】","hanchan":1,"seat":"西家","rank":2,"points":44000,"chips":-2,"hana":0}]},{"name":"12权","nameUnread":false,"hanchans":1,"hands":3,"wins":0,"deals":0,"riichis":0,"winRate":0,"dealInRate":0,"riichiRate":0,"avgWinPoints":null,"avgLossPoints":10000,"avgDealInPoints":null,"avgTsumoLossPoints":10000,"winPoints":0,"dealInPoints":0,"uraHitRate":null,"avgUraTiles":null,"uraKnown":0,"uraWins":0,"uraTiles":0,"r1":1,"r2":0,"r3":0,"topRate":100,"lastRate":0,"avgRank":1,"avgFinalPoints":71000,"bust":0,"chipTotal":12,"chipPerHanchan":12,"chipHanchans":1,"hanaPerHanchan":1,"hanaTotal":1,"hana4":0,"telopChips":12,"telopRank":9,"telopKaisen":120,"log":[{"video":"wlmFy5so4_0","kaisen":120,"title":"【賞金230万円】企業リーグ2026ラストスパート!! 関西最終戦!! 関東は最終節突入! 【ザン企業リーグ2026  予選120回戦 121回戦】","hanchan":1,"seat":"東家","rank":1,"points":71000,"chips":12,"hana":1}]},{"name":"走。","nameUnread":false,"hanchans":1,"hands":3,"wins":0,"deals":2,"riichis":1,"winRate":0,"dealInRate":66.7,"riichiRate":33.3,"avgWinPoints":null,"avgLossPoints":11333,"avgDealInPoints":14000,"avgTsumoLossPoints":6000,"winPoints":0,"dealInPoints":28000,"uraHitRate":null,"avgUraTiles":null,"uraKnown":0,"uraWins":0,"uraTiles":0,"r1":0,"r2":0,"r3":1,"topRate":0,"lastRate":100,"avgRank":3,"avgFinalPoints":23000,"bust":0,"chipTotal":-12,"chipPerHanchan":-12,"chipHanchans":1,"hanaPerHanchan":1,"hanaTotal":1,"hana4":0,"telopChips":38,"telopRank":17,"telopKaisen":120,"log":[{"video":"wlmFy5so4_0","kaisen":120,"title":"【賞金230万円】企業リーグ2026ラストスパート!! 関西最終戦!! 関東は最終節突入! 【ザン企業リーグ2026  予選120回戦 121回戦】","hanchan":1,"seat":"西家","rank":3,"points":23000,"chips":-12,"hana":1}]},{"name":"青山","nameUnread":false,"hanchans":1,"hands":2,"wins":1,"deals":0,"riichis":1,"winRate":50,"dealInRate":0,"riichiRate":50,"avgWinPoints":18000,"avgLossPoints":null,"avgDealInPoints":null,"avgTsumoLossPoints":null,"winPoints":18000,"dealInPoints":0,"uraHitRate":0,"avgUraTiles":null,"uraKnown":1,"uraWins":0,"uraTiles":0,"r1":1,"r2":0,"r3":0,"topRate":100,"lastRate":0,"avgRank":1,"avgFinalPoints":99000,"bust":0,"chipTotal":18,"chipPerHanchan":18,"chipHanchans":1,"hanaPerHanchan":2,"hanaTotal":2,"hana4":0,"telopChips":92,"telopRank":2,"telopKaisen":120,"log":[{"video":"wlmFy5so4_0","kaisen":120,"title":"【賞金230万円】企業リーグ2026ラストスパート!! 関西最終戦!! 関東は最終節突入! 【ザン企業リーグ2026  予選120回戦 121回戦】","hanchan":2,"seat":"東家","rank":1,"points":99000,"chips":18,"hana":2}]},{"name":"<p","nameUnread":false,"hanchans":1,"hands":2,"wins":0,"deals":1,"riichis":1,"winRate":0,"dealInRate":50,"riichiRate":50,"avgWinPoints":null,"avgLossPoints":18000,"avgDealInPoints":18000,"avgTsumoLossPoints":null,"winPoints":0,"dealInPoints":18000,"uraHitRate":null,"avgUraTiles":null,"uraKnown":0,"uraWins":0,"uraTiles":0,"r1":0,"r2":0,"r3":1,"topRate":0,"lastRate":100,"avgRank":3,"avgFinalPoints":16000,"bust":0,"chipTotal":-14,"chipPerHanchan":-14,"chipHanchans":1,"hanaPerHanchan":0,"hanaTotal":0,"hana4":0,"telopChips":16,"telopRank":15,"telopKaisen":120,"log":[{"video":"wlmFy5so4_0","kaisen":120,"title":"【賞金230万円】企業リーグ2026ラストスパート!! 関西最終戦!! 関東は最終節突入! 【ザン企業リーグ2026  予選120回戦 121回戦】","hanchan":2,"seat":"西家","rank":3,"points":16000,"chips":-14,"hana":0}]},{"name":"飞h","nameUnread":false,"hanchans":1,"hands":1,"wins":1,"deals":0,"riichis":0,"winRate":100,"dealInRate":0,"riichiRate":0,"avgWinPoints":12000,"avgLossPoints":null,"avgDealInPoints":null,"avgTsumoLossPoints":null,"winPoints":12000,"dealInPoints":0,"uraHitRate":null,"avgUraTiles":null,"uraKnown":0,"uraWins":0,"uraTiles":0,"r1":1,"r2":0,"r3":0,"topRate":100,"lastRate":0,"avgRank":1,"avgFinalPoints":138000,"bust":0,"chipTotal":26,"chipPerHanchan":26,"chipHanchans":1,"hanaPerHanchan":3,"hanaTotal":3,"hana4":0,"telopChips":22,"telopRank":15,"telopKaisen":122,"log":[{"video":"_5pG8HAmidc","kaisen":122,"title":"【賞金230万円】国士無双vs緑一色!? 奇跡の役満対決の軍配はどちらに上がるか!?【ザン企業リーグ2026  予選122回戦 123回戦】","hanchan":2,"seat":"東家","rank":1,"points":138000,"chips":26,"hana":3}]},{"name":"西川舞","nameUnread":false,"hanchans":1,"hands":1,"wins":0,"deals":1,"riichis":0,"winRate":0,"dealInRate":100,"riichiRate":0,"avgWinPoints":null,"avgLossPoints":12000,"avgDealInPoints":12000,"avgTsumoLossPoints":null,"winPoints":0,"dealInPoints":12000,"uraHitRate":null,"avgUraTiles":null,"uraKnown":0,"uraWins":0,"uraTiles":0,"r1":0,"r2":1,"r3":0,"topRate":0,"lastRate":0,"avgRank":2,"avgFinalPoints":6000,"bust":0,"chipTotal":-10,"chipPerHanchan":-10,"chipHanchans":1,"hanaPerHanchan":0,"hanaTotal":0,"hana4":0,"telopChips":139,"telopRank":1,"telopKaisen":122,"log":[{"video":"_5pG8HAmidc","kaisen":122,"title":"【賞金230万円】国士無双vs緑一色!? 奇跡の役満対決の軍配はどちらに上がるか!?【ザン企業リーグ2026  予選122回戦 123回戦】","hanchan":2,"seat":"南家","rank":2,"points":6000,"chips":-10,"hana":0}]},{"name":"の日向","nameUnread":false,"hanchans":1,"hands":1,"wins":1,"deals":0,"riichis":0,"winRate":100,"dealInRate":0,"riichiRate":0,"avgWinPoints":8000,"avgLossPoints":null,"avgDealInPoints":null,"avgTsumoLossPoints":null,"winPoints":8000,"dealInPoints":0,"uraHitRate":null,"avgUraTiles":null,"uraKnown":0,"uraWins":0,"uraTiles":0,"r1":0,"r2":1,"r3":0,"topRate":0,"lastRate":0,"avgRank":2,"avgFinalPoints":59000,"bust":0,"chipTotal":0,"chipPerHanchan":0,"chipHanchans":1,"hanaPerHanchan":1,"hanaTotal":1,"hana4":0,"telopChips":12,"telopRank":9,"telopKaisen":118,"log":[{"video":"k87-vSHQE2o","kaisen":118,"title":"【賞金230万円】通過ボーダーギリギリ!? この1戦が勝ち残りを左右する!?【ザン企業リーグ2026  予選118回戦 119回戦】","hanchan":2,"seat":"南家","rank":2,"points":59000,"chips":0,"hana":1}]},{"name":"A77枚","nameUnread":false,"hanchans":1,"hands":1,"wins":0,"deals":0,"riichis":1,"winRate":0,"dealInRate":0,"riichiRate":100,"avgWinPoints":null,"avgLossPoints":3000,"avgDealInPoints":null,"avgTsumoLossPoints":3000,"winPoints":0,"dealInPoints":0,"uraHitRate":null,"avgUraTiles":null,"uraKnown":0,"uraWins":0,"uraTiles":0,"r1":1,"r2":0,"r3":0,"topRate":100,"lastRate":0,"avgRank":1,"avgFinalPoints":60000,"bust":0,"chipTotal":10,"chipPerHanchan":10,"chipHanchans":1,"hanaPerHanchan":1,"hanaTotal":1,"hana4":0,"telopChips":-4,"telopRank":19,"telopKaisen":118,"log":[{"video":"k87-vSHQE2o","kaisen":118,"title":"【賞金230万円】通過ボーダーギリギリ!? この1戦が勝ち残りを左右する!?【ザン企業リーグ2026  予選118回戦 119回戦】","hanchan":2,"seat":"西家","rank":1,"points":60000,"chips":10,"hana":1}]}]};
+var C = D.coverage;
+function $(s){ return document.querySelector(s); }
+function el(t,c,x){ var n=document.createElement(t); if(c)n.className=c;
+  if(x!=null)n.textContent=x; return n; }
+function nf(n){ return n==null?'—':n.toLocaleString('ja-JP'); }
+function pc(n){ return n==null?'—':n.toFixed(1)+'%'; }
+function sgn(n){ return n==null?'—':(n>0?'+':'')+n; }
+
+$('#dKai').textContent = (C.kaisenFrom&&C.kaisenTo) ? C.kaisenFrom+'–'+C.kaisenTo : '—';
+$('#dHan').textContent = C.hanchans;
+$('#dHands').textContent = C.hands;
+$('#dPl').textContent = C.clustered;
+$('#dVid').textContent = C.videos+' / '+C.totalInSeason+'本';
+$('#nHan').textContent = C.rankedHanchans;
+
+var P = D.players.map(function(p){
+  var o = {}; for (var k in p) o[k] = p[k];
+  o.avgRankInv = p.avgRank==null?null:-p.avgRank;
+  o.telopRankInv = p.telopRank==null?null:-p.telopRank;
+  o.dealInRateInv = p.dealInRate==null?null:-p.dealInRate;
+  o.avgLossPointsInv = p.avgLossPoints==null?null:-p.avgLossPoints;
+  o.lastRateInv = p.lastRate==null?null:-p.lastRate;
+  return o;
+});
+var byName = {};
+P.forEach(function(p){ byName[p.name] = p; });
+
+function distBar(p){
+  var w = el('div','dw');
+  var tot = (p.r1+p.r2+p.r3)||0;
+  w.appendChild(el('code',null, tot ? p.r1+'-'+p.r2+'-'+p.r3 : '—'));
+  if (tot){
+    var bar = el('div','dist');
+    [['a',p.r1],['b',p.r2],['c',p.r3]].forEach(function(s){
+      if(!s[1])return;
+      var g = el('i',s[0]); g.style.width = (100*s[1]/tot).toFixed(1)+'%'; bar.appendChild(g);
+    });
+    w.appendChild(bar);
+  }
+  return w;
+}
+function nameCell(p){
+  var td = el('td','pn');
+  var b = el('button',null,p.name);
+  b.addEventListener('click', function(){ openProfile(p.name); });
+  td.appendChild(b);
+  if (p.nameUnread) td.appendChild(el('span','tag','名前未読'));
+  return td;
+}
+function showView(tab){
+  [['t-s','v-s'],['t-r','v-r'],['t-p','v-p']].forEach(function(o){
+    $('#'+o[0]).setAttribute('aria-selected', String(o[0]===tab));
+    $('#'+o[1]).hidden = o[0]!==tab;
+  });
+}
+[['t-s','v-s'],['t-r','v-r'],['t-p','v-p']].forEach(function(v){
+  $('#'+v[0]).addEventListener('click', function(){
+    showView(v[0]); window.scrollTo(0,0);
+  });
+});
+
+/* ---------- 総合順位 ---------- */
+var tsBody = $('#ts tbody');
+var sKey='telopRankInv', sDir='desc';
+var sThs = document.querySelectorAll('#ts thead th.s');
+function drawStandings(){
+  Array.prototype.forEach.call(sThs, function(th){ th.removeAttribute('data-dir'); });
+  for (var i=0;i<sThs.length;i++) if (sThs[i].dataset.k===sKey) sThs[i].dataset.dir = sDir;
+  var list = P.slice().sort(function(x,y){
+    var u=x[sKey], v=y[sKey];
+    if(u==null&&v==null)return 0; if(u==null)return 1; if(v==null)return -1;
+    return sDir==='asc'?u-v:v-u;
+  });
+  tsBody.textContent='';
+  list.forEach(function(p){
+    var tr = el('tr');
+    tr.appendChild(el('td','rk'+(p.telopRank!=null&&p.telopRank<=3?' top3':''),
+      p.telopRank==null?'—':String(p.telopRank)));
+    tr.appendChild(nameCell(p));
+    var tc = el('td','num'+(p.telopChips>0?' pos':(p.telopChips<0?' neg':'')));
+    tc.textContent = p.telopChips==null?'—':sgn(p.telopChips); tr.appendChild(tc);
+    tr.appendChild(el('td','num',String(p.hanchans)));
+    tr.appendChild(el('td','num',String(p.hands)));
+    tr.appendChild(el('td','num',pc(p.topRate)));
+    var d = el('td','num'); d.appendChild(distBar(p)); tr.appendChild(d);
+    tr.appendChild(el('td','num',p.avgRank==null?'—':p.avgRank.toFixed(2)));
+    var ch = el('td','num'+(p.chipTotal>0?' pos':(p.chipTotal<0?' neg':'')));
+    ch.textContent = p.chipTotal==null?'—':sgn(p.chipTotal); tr.appendChild(ch);
+    tr.appendChild(el('td','num',pc(p.winRate)));
+    tr.appendChild(el('td','num',pc(p.dealInRate)));
+    tr.appendChild(el('td','num',pc(p.riichiRate)));
+    tr.appendChild(el('td','num',nf(p.avgWinPoints)));
+    tr.appendChild(el('td','num',nf(p.avgLossPoints)));
+    tsBody.appendChild(tr);
+  });
+}
+Array.prototype.forEach.call(sThs, function(th){
+  th.addEventListener('click', function(){
+    if (sKey===th.dataset.k) sDir = sDir==='desc'?'asc':'desc';
+    else { sKey = th.dataset.k; sDir='desc'; }
+    drawStandings();
+  });
+});
+drawStandings();
+
+/* ---------- ランキング ---------- */
+var BOARDS = {
+  atk: [
+    {t:'和了率', k:'winRate', f:function(v){return pc(v)}, s:function(p){return p.wins+'/'+p.hands+'局'}},
+    {t:'トップ率', k:'topRate', f:function(v){return pc(v)}, s:function(p){return p.r1+'/'+p.hanchans+'半荘'}},
+    {t:'平均打点', k:'avgWinPoints', f:nf, s:function(p){return p.wins+'和了'}},
+    {t:'リーチ率', k:'riichiRate', f:function(v){return pc(v)}, s:function(p){return p.riichis+'回'}},
+    {t:'チップ収支', k:'chipTotal', f:sgn, s:function(p){return p.chipHanchans+'半荘'}},
+    {t:'平均最終素点', k:'avgFinalPoints', f:nf, s:function(p){return p.hanchans+'半荘'}}
+  ],
+  def: [
+    {t:'放銃率が低い', k:'dealInRateInv', f:function(v,p){return pc(p.dealInRate)}, s:function(p){return p.deals+'/'+p.hands+'局'}},
+    {t:'平均着順が良い', k:'avgRankInv', f:function(v,p){return p.avgRank.toFixed(2)}, s:function(p){return p.hanchans+'半荘'}},
+    {t:'3着率が低い', k:'lastRateInv', f:function(v,p){return pc(p.lastRate)}, s:function(p){return p.r3+'/'+p.hanchans+'半荘'}},
+    {t:'平均失点が低い', k:'avgLossPointsInv', f:function(v,p){return nf(p.avgLossPoints)}, s:function(){return '被害の小ささ'}}
+  ],
+  luck: [
+    {t:'裏乗り率', k:'uraHitRate', f:function(v){return pc(v)}, s:function(p){return p.uraWins+'/'+p.uraKnown+'リーチ和了'}},
+    {t:'平均裏枚数', k:'avgUraTiles', f:function(v){return v==null?'—':v+'枚'}, s:function(p){return p.uraTiles+'枚'}},
+    {t:'華牌の引き', k:'hanaPerHanchan', f:function(v){return v==null?'—':v+'枚'}, s:function(){return '半荘あたり'}},
+    {t:'不運：平均失点が高い', k:'avgLossPoints', f:nf, s:function(){return '振ってない分も'}},
+    {t:'不運：3着率が高い', k:'lastRate', f:function(v){return pc(v)}, s:function(p){return p.r3+'/'+p.hanchans+'半荘'}},
+    {t:'不運：飛び', k:'bust', f:function(v){return (v||0)+'回'}, s:function(p){return p.hanchans+'半荘中'}}
+  ]
+};
+var rMin = 10;
+function drawBoards(){
+  var pool = P.filter(function(p){ return (p.hands||0) >= rMin; });
+  $('#rCount').textContent = pool.length+' 名が対象（全 '+P.length+' 名）';
+  [['atk','#bAtk',false],['def','#bDef',false],['luck','#bLuck',true]].forEach(function(g){
+    var host = $(g[1]); host.textContent='';
+    BOARDS[g[0]].forEach(function(b){
+      var card = el('div','bd'+(g[2]?' hot':''));
+      var h = el('h4'); h.appendChild(el('span',null,b.t)); h.appendChild(el('em',null,'TOP 5'));
+      card.appendChild(h);
+      var ranked = pool.filter(function(p){ return p[b.k]!=null; })
+        .sort(function(x,y){ return y[b.k]-x[b.k]; }).slice(0,5);
+      if (!ranked.length) card.appendChild(el('p','empty','まだ母数が足りない'));
+      else {
+        var ol = el('ol');
+        ranked.forEach(function(p,i){
+          var li = el('li');
+          li.appendChild(el('span','n',String(i+1)));
+          var nb = el('button',null,p.name);
+          nb.addEventListener('click', function(){ showView('t-p'); openProfile(p.name); });
+          li.appendChild(nb);
+          var v = el('span','v', b.f(p[b.k], p));
+          if (b.s) v.appendChild(el('s',null,b.s(p)));
+          li.appendChild(v);
+          ol.appendChild(li);
+        });
+        card.appendChild(ol);
+      }
+      host.appendChild(card);
+    });
+  });
+}
+$('#rMin').addEventListener('change', function(e){ rMin = +e.target.value; drawBoards(); });
+drawBoards();
+
+/* ---------- 選手名鑑 ---------- */
+var pSort='telopRankInv', showUnread=true;
+function drawRoster(){
+  var list = P.filter(function(p){ return showUnread || !p.nameUnread; })
+    .slice().sort(function(x,y){
+      var u=x[pSort], v=y[pSort];
+      if(u==null&&v==null)return 0; if(u==null)return 1; if(v==null)return -1;
+      return v-u;
+    });
+  var host = $('#roster'); host.textContent='';
+  list.forEach(function(p){
+    var c = el('button','pcard');
+    var hd = el('div','hd');
+    hd.appendChild(el('span','nm',p.name));
+    hd.appendChild(el('span','lr', p.telopRank==null?'—':p.telopRank+'位'));
+    c.appendChild(hd);
+    var dl = el('dl');
+    [['局数',String(p.hands)],['和了率',pc(p.winRate)],
+     ['トップ率',pc(p.topRate)],['累計チップ',p.telopChips==null?'—':sgn(p.telopChips)+'枚']
+    ].forEach(function(row){
+      var w = el('div'); w.appendChild(el('dt',null,row[0]));
+      w.appendChild(el('dd',null,row[1])); dl.appendChild(w);
+    });
+    c.appendChild(dl);
+    c.addEventListener('click', function(){ openProfile(p.name); });
+    host.appendChild(c);
+  });
+  $('#pCount').textContent = list.length+' 名';
+}
+$('#pSort').addEventListener('change', function(e){ pSort = e.target.value; drawRoster(); });
+$('#pUn').addEventListener('change', function(e){ showUnread = !!e.target.value; drawRoster(); });
+drawRoster();
+
+/* ---------- プロフィール ---------- */
+function mg(rows, cls){
+  var dl = el('dl','mg'+(cls?' '+cls:''));
+  rows.forEach(function(r){
+    var w = el('div');
+    w.appendChild(el('dt',null,r[0]));
+    var dd = el('dd',null,r[1]);
+    if (r[2]) dd.appendChild(el('s',null,r[2]));
+    w.appendChild(dd); dl.appendChild(w);
+  });
+  return dl;
+}
+function openProfile(name){
+  var p = byName[name];
+  if (!p) return;
+  var host = $('#prof');
+  host.textContent=''; host.hidden=false;
+
+  var head = el('div','ph');
+  var left = el('div');
+  var h = el('h3',null,p.name);
+  left.appendChild(h);
+  if (p.nameUnread) h.appendChild(el('span','tag','名前未読'));
+  left.appendChild(el('p','sub','読めた半荘 '+p.hanchans+' ／ 局 '+p.hands
+    + (p.telopKaisen ? ' ／ 累計は '+p.telopKaisen+'回戦時点' : '')));
+  head.appendChild(left);
+  var off = el('div','off');
+  off.appendChild(el('b',null,p.telopRank==null?'—':p.telopRank+'位'));
+  off.appendChild(el('span',null,'累計チップ '+(p.telopChips==null?'—':sgn(p.telopChips)+'枚')));
+  head.appendChild(off);
+  var close = el('button',null,'閉じる');
+  close.addEventListener('click', function(){ host.hidden=true; });
+  head.appendChild(close);
+  host.appendChild(head);
+
+  var body = el('div','pb');
+
+  body.appendChild(el('h4','sec','着順'));
+  var hl = el('div','hl');
+  var bar = el('div','dist');
+  var tot = (p.r1+p.r2+p.r3)||0;
+  if (tot) [['a',p.r1],['b',p.r2],['c',p.r3]].forEach(function(s){
+    if(!s[1])return;
+    var g = el('i',s[0]); g.style.width=(100*s[1]/tot).toFixed(1)+'%'; bar.appendChild(g);
+  });
+  hl.appendChild(bar);
+  hl.appendChild(el('code',null,'1着 '+p.r1+'・2着 '+p.r2+'・3着 '+p.r3
+    +'　平均着順 '+(p.avgRank==null?'—':p.avgRank.toFixed(2))
+    +(p.bust?'　飛び '+p.bust+'回':'')));
+  body.appendChild(hl);
+
+  body.appendChild(el('h4','sec','攻め'));
+  body.appendChild(mg([
+    ['和了率', pc(p.winRate), p.wins+'/'+p.hands],
+    ['トップ率', pc(p.topRate), p.r1+'/'+p.hanchans],
+    ['平均打点', nf(p.avgWinPoints), '点'],
+    ['和了点の合計', nf(p.winPoints), '点'],
+    ['リーチ率', pc(p.riichiRate), p.riichis+'回'],
+    ['平均最終素点', nf(p.avgFinalPoints), '点']
+  ]));
+
+  body.appendChild(el('h4','sec','守り'));
+  body.appendChild(mg([
+    ['放銃率', pc(p.dealInRate), p.deals+'/'+p.hands],
+    ['平均放銃点', nf(p.avgDealInPoints), '点'],
+    ['平均被ツモ失点', nf(p.avgTsumoLossPoints), '点'],
+    ['平均失点', nf(p.avgLossPoints), '点'],
+    ['3着率', pc(p.lastRate), p.r3+'/'+p.hanchans],
+    ['チップ収支', p.chipTotal==null?'—':sgn(p.chipTotal), '枚']
+  ]));
+
+  body.appendChild(el('h4','sec','運'));
+  body.appendChild(mg([
+    ['裏乗り率', pc(p.uraHitRate), p.uraKnown?p.uraWins+'/'+p.uraKnown:'母数なし'],
+    ['平均裏枚数', p.avgUraTiles==null?'—':p.avgUraTiles+'枚', ''],
+    ['華牌（半荘あたり）', p.hanaPerHanchan==null?'—':p.hanaPerHanchan+'枚', ''],
+    ['華4に到達', (p.hana4||0)+'回', ''],
+    ['飛び', (p.bust||0)+'回', p.hanchans+'半荘中']
+  ], 'hot'));
+
+  if (p.log && p.log.length){
+    body.appendChild(el('h4','sec','半荘ごとの成績'));
+    var sc = el('div','scroll');
+    var tb = el('table');
+    var thead = el('thead'), htr = el('tr');
+    ['回戦','半荘','席','着順','最終素点','チップ','華牌'].forEach(function(t,i){
+      htr.appendChild(el('th', i>=3?'num':null, t));
+    });
+    thead.appendChild(htr); tb.appendChild(thead);
+    var tbody = el('tbody');
+    p.log.forEach(function(g){
+      var tr = el('tr');
+      tr.appendChild(el('td',null, g.kaisen==null?g.video:g.kaisen+'回戦'));
+      tr.appendChild(el('td',null, g.hanchan+'半荘目'));
+      tr.appendChild(el('td',null, g.seat));
+      tr.appendChild(el('td','num', g.rank+'着'));
+      tr.appendChild(el('td','num', nf(g.points)));
+      var c = el('td','num'+(g.chips>0?' pos':(g.chips<0?' neg':'')));
+      c.textContent = g.chips==null?'—':sgn(g.chips); tr.appendChild(c);
+      tr.appendChild(el('td','num', g.hana==null?'—':g.hana+'枚'));
+      tbody.appendChild(tr);
+    });
+    tb.appendChild(tbody); sc.appendChild(tb); body.appendChild(sc);
+  }
+
+  host.appendChild(body);
+  host.scrollIntoView({block:'start'});
+}
+
+$('#foot').innerHTML =
+  '<b>ザン企業リーグ データ / 2026シーズン</b>　'
+  + '配信のテロップから素点を読み取り、その差分を競技規定（2026年1月・全55条）の点数表で逆算。'
+  + '一意に決まった局だけを集計している。<br>'
+  + '動画 <b>'+C.videos+' / '+C.totalInSeason+'本</b>・半荘 <b>'+C.hanchans+'</b>・局 <b>'+C.hands+'</b>'
+  + '（一意 '+C.solved+' ／ 候補が複数 '+C.multi+' ／ 説明できない '+C.none+'）　'
+  + '出力 '+D.generatedAt.slice(0,16).replace('T',' ')+'<br>'
+  + '三人麻雀競技団体ザンリーグの団体プロジェクト。数字は読み取り途中の暫定値。';
+</script>
+</body>
+</html>
